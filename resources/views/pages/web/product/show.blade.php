@@ -75,13 +75,14 @@
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-success waves-effect waves-light">Tambah Ke Keranjang</button>
                                             </form>
-                                            <div class="hstack gap-2 justify-content-end m-2">
-                                                <a class="btn btn-light" href="#" >Kembali</a>
-                                            </div>
+                                            
                                         </div>
                                     </div>
                                 </form>
                                 @endauth
+                                <div class="hstack gap-2 justify-content-end m-2">
+                                    <a class="btn btn-light" href="#" >Kembali</a>
+                                </div>
                             
                         </div>
                         
