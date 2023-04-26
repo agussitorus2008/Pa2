@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Web;;
 
 use App\Models\Cart;
 use App\Models\product;
-use App\Models\Province;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -24,15 +23,15 @@ class CartController extends Controller
             $subs = 0;
 
             foreach ($cart as $c) {
-                $subs = $c->menu->price * $c->count / 100;
-                $subtotal = $c->menu->price + $subs;
+                $subs = $c->product->price * $c->count / 100;
+                $subtotal = $c->product->price + $subs;
                 $output .=
                     '<div class="d-block dropdown-item dropdown-item-cart text-wrap px-3 py-2">
                     <div class="d-flex align-items-center">
-                        <img src="' . asset('images/img/' . $c->menu->image) . '" class="me-3 rounded-circle avatar-sm p-2 bg-light" alt="user-pic">
+                        <img src="' . asset('images/img/' . $c->product->image) . '" class="me-3 rounded-circle avatar-sm p-2 bg-light" alt="user-pic">
                         <div class="flex-1">
                             <h6 class="mt-0 mb-1 fs-14">
-                                <a href="javascript" class="text-reset">' . $c->menu->name . '</a>
+                                <a href="javascript" class="text-reset">' . $c->product->name . '</a>
                             </h6>
                             <p class="mb-0 fs-12 text-muted text-nowrap">
                                 Quantity: <span>' . $c->quantity . ' x Rp.' . number_format($subtotal,2,'.', ',') . '</span>
@@ -71,10 +70,9 @@ class CartController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $provinces = Province::all();
             $count = Cart::where('user_id', Auth::guard('web')->user()->id)->count();
             $carts = Cart::where('user_id', Auth::guard('web')->user()->id)->get();
-            return view('pages.web.cart.list', compact('carts', 'count', 'provinces', ));
+            return view('pages.web.cart.list', compact('carts', 'count', ));
         }
         return view('pages.web.cart.main');
     }
@@ -82,9 +80,9 @@ class CartController extends Controller
     public function store(Request $request)
     {                
         $cart = Cart::where('user_id', Auth::guard('web')->user()->id)->where('menu_id', $request->menu_id)->first();
-        $menu = product::find($request->menu_id);
+        $product = product::find($request->menu_id);
         
-        if($menu->stock < $request->quantity){
+        if($product->stock < $request->quantity){
             return response()->json([
                 'alert' => 'error',
                 'message' => 'Stok tidak cukup!',
@@ -112,31 +110,31 @@ class CartController extends Controller
         $request->validate([
             'quantity' => 'required',
         ]);
-        if ($cart->quantity < $cart->menu->stock) {
+        if ($cart->quantity < $cart->product->stock) {
             $cart->quantity = $request->quantity;
             $cart->save();
             return response()->json([
                 'quantity' => $cart->quantity,
-                'subtotal' => number_format($request->quantity * $cart->menu->price),
+                'subtotal' => number_format($request->quantity * $cart->product->price),
             ]);
         } else {
             return response()->json([
                 'quantity' => $cart->quantity,
-                'subtotal' => number_format($cart->quantity * $cart->menu->price),
+                'subtotal' => number_format($cart->quantity * $cart->product->price),
             ]);
         }
     }
 
     public function increase(Cart $cart)
     {
-        if ($cart->quantity < $cart->menu->stock) {
+        if ($cart->quantity < $cart->product->stock) {
             $cart->quantity = $cart->quantity + 1;
             $cart->update();
             return response()->json([
                 'alert' => 'success',
                 'message' => 'Berhasil menambahkan stok',
                 'quantity' => $cart->quantity,
-                'subtotal' => number_format($cart->quantity * $cart->menu->price),
+                'subtotal' => number_format($cart->quantity * $cart->product->price),
             ]);
 
         } else {
@@ -144,7 +142,7 @@ class CartController extends Controller
                 'alert' => 'error',
                 'message' => 'Stok tidak mencukupi',
                 'quantity' => $cart->quantity,
-                'subtotal' => number_format($cart->quantity * $cart->menu->price),
+                'subtotal' => number_format($cart->quantity * $cart->product->price),
             ]);
         }
     }
@@ -158,14 +156,14 @@ class CartController extends Controller
                 'alert' => 'success',
                 'message' => 'Berhasil mengurangi jumlah pesanan',
                 'quantity' => $cart->quantity,
-                'subtotal' => number_format($cart->quantity * $cart->menu->price),
+                'subtotal' => number_format($cart->quantity * $cart->product->price),
             ]);
         } else {
             return response()->json([
                 'alert' => 'error',
                 'message' => 'Stok tidak boleh kurang dari 1',
                 'quantity' => $cart->quantity,
-                'subtotal' => number_format($cart->quantity * $cart->menu->price),
+                'subtotal' => number_format($cart->quantity * $cart->product->price),
             ]);
         }
     }

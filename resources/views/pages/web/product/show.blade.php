@@ -80,10 +80,9 @@
                                     </div>
                                 </form>
                                 @endauth
-                                <div class="hstack gap-2 justify-content-end m-2">
-                                    <a class="btn btn-light" href="#" >Kembali</a>
-                                </div>
-                            
+                                <div class="hstack gap-2 justify-content-end">
+                                    <a class="btn btn-light" href="javascript:;" onclick="load_list(1);">Kembali</a>
+                                </div>                          
                         </div>
                         
                     </div>

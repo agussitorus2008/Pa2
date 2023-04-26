@@ -1,6 +1,4 @@
-<x-admin-layouts title="Message">
-
-
+<x-app-layout title="Message">
     <div class="container-fluid">
         <div class="chat-wrapper d-lg-flex gap-1 mx-n4 mt-n4 p-1">
             <div class="chat-leftsidebar">
@@ -16,7 +14,6 @@
                     </div>
 
                 </div> <!-- .p-4 -->
-
                 <div class="chat-room-list" data-simplebar>
 
                     <div class="d-flex align-items-center px-4 mb-2">
@@ -136,7 +133,8 @@
 
                             <div class="chat-input-section p-3 p-lg-4"> 
             
-                                <form id="chatinput-form" enctype="multipart/form-data" > 
+                                <form action="{{ route('admin.message.store') }}" method="POST">
+                                    @csrf
                                     <div class="row g-0 align-items-center">
                                         <div class="col-auto">
                                             <div class="chat-input-links me-2">
@@ -166,25 +164,7 @@
 
                                     </div>
                                 </form>    
-                            </div>
-
-                            <div class="replyCard">
-                                <div class="card mb-0">
-                                    <div class="card-body py-3">
-                                        <div class="replymessage-block mb-0 d-flex align-items-start">
-                                            <div class="flex-grow-1">
-                                                <h5 class="conversation-name"></h5>
-                                                <p class="mb-0"></p>
-                                            </div>
-                                            <div class="flex-shrink-0">
-                                                <button type="button" id="close_toggle" class="btn btn-sm btn-link mt-n2 me-n3 fs-18">
-                                                    <i class="bx bx-x align-middle"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            </div>  
                         </div>
                     </div>
                 </div>
@@ -193,8 +173,4 @@
         <!-- end chat-wrapper -->
         
     </div>
-    <!-- container-fluid -->
-
-
-
-</x-admin-layouts>
+</x-app-layout>

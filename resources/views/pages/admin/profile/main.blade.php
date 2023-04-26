@@ -1,4 +1,4 @@
-<x-admin-layouts title="Profile">
+<x-app-layout title="Profile">
     <div class="container-fluid">
         <div class="row">
             <div class="col-xxl-3">
@@ -105,4 +105,4 @@
         <!--end row-->
 
     </div>
-</x-admin-layouts>
+</x-app-layout>
