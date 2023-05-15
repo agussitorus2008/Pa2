@@ -1,4 +1,4 @@
-<x-app-layout title="Home">
+<x-app-layout title="Menu">
     <div id="content_list">
         {{-- <div class="row">
             <div class="col-12">
@@ -14,7 +14,7 @@
                         <div class="col-sm">
                             <div class="d-flex justify-content-sm-start">
                                 <div class="my-2">
-                                    <h4>Daftar Ikan</h4>
+                                    <h4>Daftar Product</h4>
                                 </div>
                             </div>
                         </div>

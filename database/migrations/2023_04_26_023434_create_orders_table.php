@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('code', 10);
             $table->foreignId('user_id');
             $table->integer('total');
-            $table->string('payment');
+            $table->string('payment')->nullable();
             $table->string('image')->nullable();
             $table->enum('status', ['pending', 'accepted', 'rejected'])->default('pending');
             $table->timestamps();

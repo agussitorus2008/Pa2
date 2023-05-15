@@ -2,64 +2,83 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\product;
+use App\Models\User;
+use App\Models\Order;
+use App\Models\Coupon;
+use App\Models\OrderDetail;
+use App\Models\Notification;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use PDF;
 
 class OrderController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function index(Request $request)
     {
-        return view('pages.admin.order.main');
+        if ($request->ajax()) {
+            $orders = Order::where('total', 'like', '%' . $request->keyword . '%')
+                ->orWhere('status', 'like', '%' . $request->keyword . '%')
+                ->orWhere('payment', 'like', '%' . $request->keyword . '%')
+                ->latest()->paginate(10);
+            return view('pages.admin.orders.list', compact('orders'));
+        }
+        return view('pages.admin.orders.main');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function show(Order $order)
     {
-        //
+        return view('pages.admin.orders.show', compact('order'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function accept(Order $order)
     {
-        //
+        $notification = new Notification;
+        $notification->user_id = $order->user_id;
+        $notification->message = 'Pesanan anda dengan kode ' . $order->code . ' Diterima!';
+        $notification->type = 'success';
+        $notification->save();
+
+        $order->status = 'accepted';
+        $order->save();
+
+        return response()->json([
+            'alert' => 'success',
+            'message' => 'Pesanan berhasil Diterima',
+        ]);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function reject(Order $order)
     {
-        //
-    }
+        $notification = new Notification;
+        $notification->user_id = $order->user_id;
+        $notification->message = 'Pesanan anda dengan kode ' . $order->code . ' Ditolak!';
+        $notification->type = 'warning';
+        $notification->save();
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
+        $order->status = 'rejected';
+        $order->save();
+        $order_details = OrderDetail::where('order_id', $order->id)->get();
+        foreach ($order_details as $item) {
+            $product = product::find($item->product_id);
+            $product->stock = $product->stock + $item->quantity;
+            $product->update();
+        }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
+        return response()->json([
+            'alert' => 'success',
+            'message' => 'Pesanan berhasil ditolak',
+        ]);
     }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+    public function pdf()
     {
-        //
+        $orders = Order::orderBy('created_at', 'DESC')->get();
+        $pdf = PDF::loadView('pages.admin.orders.pdf', ['orders' => $orders]);
+        return $pdf->download($orders->first()->code . '-' . $orders->first()->created_at->format('d-m-Y') . '.pdf');
+
+        // $orders = Order::orderBy('created_at', 'DESC')->get();
+        // $pdf = PDF::loadView('pages.admin.orders.pdf', ['orders' => $orders]);
+        // return $pdf->stream();
+        // return $pdf->download($orders->code . '-' . $orders->created_at->format('d-m-Y') . '.pdf');
     }
 }

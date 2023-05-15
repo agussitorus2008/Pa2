@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama');            
             $table->string('price');
-            $table->string('stock', 3);
+            $table->integer('stock');
             $table->string('description', 500);            
             $table->string('image')->nullable();
             $table->enum('category', ['sortali', 'stola', 'gantungan']);

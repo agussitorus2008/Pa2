@@ -70,10 +70,10 @@ toastr.options = {
     hideMethod: "fadeOut",
 };
 function success_toastr(pesan) {
-    toastr.success(pesan, "Tobagofish");
+    toastr.success(pesan, "Souvenir Batak");
 }
 function error_toastr(pesan) {
-    toastr.error(pesan, "Tobagofish");
+    toastr.error(pesan, "Souvenir Batak");
 }
 function number_only(obj) {
     $("#" + obj).bind("keypress", function (event) {

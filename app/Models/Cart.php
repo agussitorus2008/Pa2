@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\Menu;
+use App\Models\product;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -11,9 +11,9 @@ class Cart extends Model
 {
     use HasFactory;
 
-    public function menu()
+    public function product()
     {
-        return $this->belongsTo(Menu::class);
+        return $this->belongsTo(product::class);
     }
 
     public function user()

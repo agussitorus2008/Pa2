@@ -11,9 +11,8 @@ class NotificationController extends Controller
 {
     public function counter()
     {
-        $user = User::find(Auth::id());
-        $total = $user->notifications()->where('read', 0)->count();
-        // dd($total);
+        $user = User::find(Auth::id())->load('notifications');
+        $total = $user->notifications->where('read', 0)->count();
         return response()->json([
             'status' => 'success',
             'total' => $total
@@ -22,7 +21,7 @@ class NotificationController extends Controller
 
     public function index()
     {
-        $user = User::find(Auth::id());
+        $user = User::find(Auth::id())->load('notifications');
         $notifications = $user->notifications()->orderBy('created_at', 'desc')->get();
         $output = '';
         if ($notifications->count() > 0) {
@@ -33,7 +32,7 @@ class NotificationController extends Controller
                         <div class="notification-content">
                         <div class="notification-text mb-0">
                         <i class="ri ri-checkbox-circle-line text-success"></i>
-                                <strong>Tobagofish</strong> ' . $notification->message . '
+                                <strong>Souvenir Batak</strong> ' . $notification->message . '
                                 <br>
                                 <small>' . $notification->created_at->diffForHumans() . '</small>
                                 <hr style="margin-bottom:-5px;">
@@ -47,7 +46,7 @@ class NotificationController extends Controller
                         <div class="notification-content">
                         <div class="notification-text">
                         <i class="ri ri-alert-line text-danger"></i>
-                                <strong>Tobagofish</strong> ' . $notification->message . '
+                                <strong>Souvenir Batak</strong> ' . $notification->message . '
                                 <br>
                                 <small>' . $notification->created_at->diffForHumans() . '</small>
                                 <hr style="margin-bottom:-5px;">
@@ -61,7 +60,7 @@ class NotificationController extends Controller
                         <div class="notification-content">
                             <div class="notification-text">
                                 <i class="ri ri-information-line text-info"></i>
-                                <strong>Tobagofish</strong> ' . $notification->message . '
+                                <strong>Souvenir Batak</strong> ' . $notification->message . '
                                 <br>
                                 <small style="margin-left:10px;">' . $notification->created_at->diffForHumans() . '</small>
                                 <hr style="margin-bottom:-5px;">
@@ -77,7 +76,7 @@ class NotificationController extends Controller
                 <div class="notification-content">
                     <i class="fas fa-info-circle text-info"></i>
                     <div class="notification-text">
-                        <strong>Tobagofish</strong> Tidak ada notifikasi
+                        <strong>Souvenir Batak</strong> Tidak ada notifikasi
                         <br>
                     </div>
                 </div>

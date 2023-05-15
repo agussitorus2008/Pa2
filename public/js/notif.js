@@ -1,5 +1,4 @@
 counter_notif(localStorage.getItem("route_counter_notif"));
-load_notif(localStorage.getItem("route_notification"));
 function tombol_notif() {
     counter_notif(localStorage.getItem("route_counter_notif"));
     load_notif(localStorage.getItem("route_notification"));

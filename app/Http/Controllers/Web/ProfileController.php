@@ -74,15 +74,15 @@ class ProfileController extends Controller
             'image' => 'nullable',
         ]);
 
-
-
         $item = User::where('id',$id)->first();
 
-        $file = $request->file('image');
-        $namafile = $file->getClientOriginalName();
-        $tujuanFile = 'profile/image';
-        $file->move($tujuanFile,$namafile);
-        $item->image = $namafile;
+        if($request->hasFile('image')){
+            $file = $request->file('image');
+            $namafile = $file->getClientOriginalName();
+            $tujuanFile = 'profile/image';
+            $file->move($tujuanFile,$namafile);
+            $item->image = $namafile;
+        }
 
         $item->nama = $request->nama;
         $item->phone = $request->phone;

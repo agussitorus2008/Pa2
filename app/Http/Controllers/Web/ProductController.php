@@ -8,22 +8,14 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function sortali(Request $request)
+    public function index(Request $request)
     {
-        $product = product::all();
-        return view('pages.web.product.list', compact('product'));
-
-    }public function stola(Request $request)
-    {
-        $product = product::all();
-        return view('pages.web.product.list', compact('product'));
-    }
-    
-    public function gantungankunci(Request $request)
-    {
-        $product = product::all();
-        return view('pages.web.product.list', compact('product'));
-
+        if ($request->ajax()) {
+            $products = product::where('nama', 'like', '%' . $request->keyword . '%')->paginate(4);
+            
+            return view('pages.web.product.list', compact('products'));
+        }
+        return view('pages.web.product.main');
     }
 
     public function show(product $product)

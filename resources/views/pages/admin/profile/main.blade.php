@@ -6,7 +6,7 @@
                     <div class="card-body p-4">
                         <div class="text-center">
                             <div class="profile-user position-relative d-inline-block mx-auto  mb-4">
-                                <img src="{{asset('profile/image/'.$admin = Auth::user()->image)}}" 
+                                <img src="{{ asset('images/profile/image/' . ($admin = Auth::user()->image)) }}"
                                     class="rounded-circle avatar-xl img-thumbnail user-profile-image"
                                     alt="user-profile-image">
                                 {{-- <div class="avatar-xs p-0 rounded-circle profile-photo-edit">
@@ -20,8 +20,8 @@
                                     </label>
                                 </div> --}}
                             </div>
-                            <h5 class="mb-1">{{  $admin = Auth::user()->nama }}
-                               
+                            <h5 class="mb-1">{{ $admin = Auth::user()->nama }}
+
                             </h5>
                         </div>
                     </div>
@@ -32,22 +32,23 @@
             <div class="col-xxl-9">
                 <div class="card">
                     <div class="card-header">
-                        <ul class="nav nav-tabs-custom rounded card-header-tabs border-bottom-0"
-                            role="tablist">
+                        <ul class="nav nav-tabs-custom rounded card-header-tabs border-bottom-0" role="tablist">
                             <li class="nav-item m-3">
-                                    <h5>Profile</h5>
+                                <h5>Profile</h5>
                                 </a>
                             </li>
                             <li class="nav-item m-3">
                                 <div class="flex-shrink-0">
-                                    <a href="{{ route('admin.editprofile') }}"  class="badge bg-light text-primary fs-12"><i class="ri-edit-box-line align-bottom "></i> Edit</a>
+                                    <a href="{{ route('admin.editprofile') }}"
+                                        class="badge bg-light text-primary fs-12"><i
+                                            class="ri-edit-box-line align-bottom "></i> Edit</a>
                                 </div>
 
                                 {{-- <div class="flex-shrink-0">
                                     <a href="{{ route('web.edit') }}" class="btn btn-success"><i
                                     class="ri-edit-box-line align-bottom"></i> Edit Profile</a>
                                 </div> --}}
-                            </li>                                    
+                            </li>
                         </ul>
                     </div>
                     <div class="card-body p-4">
@@ -62,24 +63,29 @@
                                                         <table class="table table-borderless mb-0">
                                                             <tbody>
                                                                 <tr>
-                                                                    <th class="ps-0" scope="row">User Name</th> </th>
-                                                                    <td class="text-muted">: {{  $admin = Auth::user()->username }}</td>
+                                                                    <th class="ps-0" scope="row">User Name</th>
+                                                                    </th>
+                                                                    <td class="text-muted">:
+                                                                        {{ $admin = Auth::user()->username }}</td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th class="ps-0" scope="row">Phone Number </th>
-                                                                    <td class="text-muted">: {{  $admin = Auth::user()->phone }}</td>
+                                                                    <td class="text-muted">:
+                                                                        {{ $admin = Auth::user()->phone }}</td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th class="ps-0" scope="row">E-mail </th>
-                                                                    <td class="text-muted">: {{  $admin = Auth::user()->email }}</td>
+                                                                    <td class="text-muted">:
+                                                                        {{ $admin = Auth::user()->email }}</td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th class="ps-0" scope="row">Alamat </th>
-                                                                    <td class="text-muted">: {{  $admin = Auth::user()->alamat }}</td>                                                                      
+                                                                    <td class="text-muted">:
+                                                                        {{ $admin = Auth::user()->alamat }}</td>
                                                                 </tr>
                                                                 {{-- <tr>
                                                                     <th class="ps-0" scope="row">Credit Card </th>
-                                                                    <td class="text-muted">: ID:</td>                                                                      
+                                                                    <td class="text-muted">: ID:</td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th class="ps-0" scope="row">Joining Date</th>

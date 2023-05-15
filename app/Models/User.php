@@ -4,20 +4,17 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Models\Cart;
-use App\Models\City;
 use App\Models\Order;
-use App\Models\Province;
-use App\Models\Subdistrict;
+use App\Models\Notification;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Support\Facades\Notification;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable,HasRoles;
+    use HasApiTokens, HasFactory, Notifiable, HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -62,6 +59,16 @@ class User extends Authenticatable
         return $this->hasOne(Cart::class);
     }
 
+    public function notifications()
+    {
+        return $this->hasMany(Notification::class);
+    }
+
+    public function province()
+    {
+        return $this->belongsTo(Province::class);
+    }
+
     public function city()
     {
         return $this->belongsTo(City::class);
@@ -70,10 +77,5 @@ class User extends Authenticatable
     public function subdistrict()
     {
         return $this->belongsTo(Subdistrict::class);
-    }
-
-    public function notifications()
-    {
-        return $this->hasMany(Notification::class);
     }
 }

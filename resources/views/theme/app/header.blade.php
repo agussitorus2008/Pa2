@@ -200,7 +200,7 @@
                     <button type="button" class="btn" id="page-header-user-dropdown" data-bs-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
                         <span class="d-flex align-items-center">
-                            <img class="rounded-circle header-profile-user" src="{{asset('profile/image/'.Auth::user()->image)}}"
+                            <img class="rounded-circle header-profile-user" src="{{asset('images/profile/image/'.Auth::user()->image)}}"
                                 alt="Header Avatar">
                             <span class="text-start ms-xl-2">
                                 <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">{{ Auth::User()->username }}</span>
@@ -213,7 +213,7 @@
                         <a class="dropdown-item" href="{{ route('admin.mainprofile') }}"><i
                                 class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i> <span
                                 class="align-middle">Profile</span></a>
-                        <a class="dropdown-item" href="{{ route('admin.messages') }}"><i
+                        <a class="dropdown-item" href="{{ route('admin.chat.index') }}"><i
                                 class="mdi mdi-message-text-outline text-muted fs-16 align-middle me-1"></i> <span
                                 class="align-middle">Messages</span></a>
                         <a class="dropdown-item" href="{{ route('signout') }}"><i
@@ -302,7 +302,7 @@
                         <button type="button" class="btn" id="page-header-user-dropdown" data-bs-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                             <span class="d-flex align-items-center">
-                                <img class="rounded-circle header-profile-user" src="{{asset('profile/image/'.Auth::user()->image)}}"
+                                <img class="rounded-circle header-profile-user" src="{{asset('images/profile/image/'.Auth::user()->image)}}"
                                     alt="Header Avatar">
                                 <span class="text-start ms-xl-2">
                                     <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">{{ Auth::User()->username }}</span>
@@ -324,7 +324,7 @@
                             <a class="dropdown-item" href="{{ route('web.mainprofile') }}"><i
                                     class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i> <span
                                     class="align-middle">Profile</span></a>
-                            <a class="dropdown-item" href="{{ route('web.messages') }}"><i
+                            <a class="dropdown-item" href="{{ route('web.chat.index') }}"><i
                                     class="mdi mdi-message-text-outline text-muted fs-16 align-middle me-1"></i> <span
                                     class="align-middle">Messages</span></a>
                             <a class="dropdown-item" href="{{ route('signout') }}"><i
@@ -334,8 +334,6 @@
                     </div>
                 @endrole
                 @endauth
-                
-
             </div>
         </div>
     </div>

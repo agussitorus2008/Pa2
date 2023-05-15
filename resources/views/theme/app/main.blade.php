@@ -49,23 +49,9 @@
                                 </a>
                             </li> <!-- end Dashboard Menu -->
                             <li class="nav-item">
-                                <a class="nav-link menu-link" href="#sidebarApps" data-bs-toggle="collapse"
-                                    role="button" aria-expanded="false" aria-controls="sidebarApps">
+                                <a class="nav-link menu-link" href="{{ route('web.product.index') }}">
                                     <i class="ri-apps-2-line"></i> <span data-key="t-apps">Menu Product</span>
                                 </a>
-                                <div class="collapse menu-dropdown" id="sidebarApps">
-                                    <ul class="nav nav-sm flex-column">
-                                        <li class="nav-item">
-                                            <a href="{{ route('web.product.sortali') }}" class="nav-link" data-key="product"> Sortali </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="{{ route('web.product.stola') }}" class="nav-link" data-key="product"> Stola </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="{{ route('web.product.gantungankunci') }}" class="nav-link" data-key="product"> Gantungan Kunci </a>
-                                        </li>
-                                    </ul>
-                                </div>
                             </li>
                         @endguest
                         @auth
@@ -116,23 +102,9 @@
                                 </a>
                             </li> <!-- end Dashboard Menu -->
                             <li class="nav-item">
-                                <a class="nav-link menu-link" href="#sidebarApps" data-bs-toggle="collapse"
-                                    role="button" aria-expanded="false" aria-controls="sidebarApps">
+                                <a class="nav-link menu-link" href="{{ route('web.product.index') }}">
                                     <i class="ri-apps-2-line"></i> <span data-key="t-apps">Menu Product</span>
                                 </a>
-                                <div class="collapse menu-dropdown" id="sidebarApps">
-                                    <ul class="nav nav-sm flex-column">
-                                        <li class="nav-item">
-                                            <a href="{{ route('web.product.sortali') }}" class="nav-link" data-key="product"> Sortali </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="{{ route('web.product.stola') }}" class="nav-link" data-key="product"> Stola </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="{{ route('web.product.gantungankunci') }}" class="nav-link" data-key="product"> Gantungan Kunci </a>
-                                        </li>
-                                    </ul>
-                                </div>
                             </li>
 
                             <!-- end Dashboard Menu -->
@@ -193,7 +165,7 @@
     </button>
     <!--end back-to-top-->
     @include('theme.app.js')
-    
+    @yield('custom_js')
 </body>
 
 </html>
