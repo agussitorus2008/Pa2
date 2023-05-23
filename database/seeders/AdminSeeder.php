@@ -16,24 +16,44 @@ class AdminSeeder extends Seeder
     public function run()
     {
         $admin = User::create([
-            'nama'=> 'Admin',
+            'nama' => 'Admin',
             'username' => 'Admin',
-            'phone'=>'082274168229',
-            'Alamat'=> 'Sigumpar',
-            'image'=> 'admin.JPEG',
-            'email'=> 'admin@gmail.com',
-            'password'=> Hash::make('admin123')
+            'phone' => '082274168229',
+            'Alamat' => 'Sigumpar',
+            'image' => 'admin.JPEG',
+            'email' => 'admin@gmail.com',
+            'password' => Hash::make('admin123')
         ]);
         $admin->assignRole(self::ROLE_ADMIN);
 
         $user = User::create([
-            'nama'=> 'Agus Sitorus',
+            'nama' => 'Agus Sitorus',
             'username' => 'agus321',
-            'phone'=> '082274168228',
-            'image'=>'user.JPEG',
-            'alamat'=>'janjimaria',
-            'email'=> 'agussitorus24@gmail.com',
-            'password'=> Hash::make('agus12345')
+            'phone' => '082274168228',
+            'image' => 'user.JPEG',
+            'alamat' => 'janjimaria',
+            'email' => 'agussitorus24@gmail.com',
+            'password' => Hash::make('agus12345')
+        ]);
+
+        $user = User::create([
+            'nama' => 'Tesya',
+            'username' => 'tesya123',
+            'phone' => '082274168229',
+            'image' => 'user.JPEG',
+            'alamat' => 'janjimaria',
+            'email' => 'agussitorus25@gmail.com',
+            'password' => Hash::make('agus12345')
+        ]);
+
+        $user = User::create([
+            'nama' => 'Cici',
+            'username' => 'cici123',
+            'phone' => '082274168227',
+            'image' => 'user.JPEG',
+            'alamat' => 'janjimaria',
+            'email' => 'agussitorus26@gmail.com',
+            'password' => Hash::make('agus12345')
         ]);
         $user->assignRole(self::ROLE_CUSTOMER);
     }

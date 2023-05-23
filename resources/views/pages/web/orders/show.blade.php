@@ -21,7 +21,7 @@
             <div class="card-header">
                 <div class="d-flex align-items-center">
                     <h5 class="card-title flex-grow-1 mb-0">Order {{ $order->code }}</h5>
-                    
+
                 </div>
             </div>
             <div class="card-body">
@@ -36,25 +36,31 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($order->orderDetails as $item)
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="row justify-content-center">
-                                        <div class=" flex-shrink-0 avatar-md bg-light rounded p-1 col-md-4" style="width:60%;height:60%;">
-                                            <img src="{{ asset('images/img/'.$item->menu->image) }}" alt="" class="img-fluid d-block" style="height:100%; width:100%; ">
-                                            <div class="flex-grow-1 text-wrap text-center mt-1 ">
-                                                <h5 class="col fs-15 link-primary fs-6 text-center">{{ $item->menu->nama }}</h5>
+                            @foreach ($order->orderDetails as $item)
+                                <tr>
+                                    <td class="col-md-4">
+                                        <div class="row justify-content-center">
+                                            <div class=" flex-shrink-0 avatar-md bg-light rounded p-1 col-md-4"
+                                                style="width:60%;height:60%;">
+                                                <img src="{{ asset('images/img/' . $item->product->image) }}"
+                                                    alt="" class="img-fluid d-block"
+                                                    style="height:100%; width:100%; ">
+                                                <div class="flex-grow-1 text-wrap text-center mt-1 ">
+                                                    <h5 class="col fs-15 link-primary fs-6 text-center">
+                                                        {{ $item->product->nama }}</h5>
+                                                </div>
                                             </div>
-                                        </div>                                        
-                                    </div>
-                                </td>
-                                <td>Rp. {{ number_format($item->menu->price + (($item->menu->price * $item->size->count /100)),2,'.', ',') }}</td>
-                                <td>{{ $item->quantity }}</td>
-                                <td class="fw-medium ">
-                                    Rp. {{ number_format(($item->menu->price + ($item->menu->price * $item->size->count /100)) * $item->quantity,2,'.', ',') }}
-                                </td>
-                            </tr>
-                            
+                                        </div>
+                                    </td>
+                                    <td>Rp.
+                                        {{ number_format($item->product->price + ($item->product->price * $item->count) / 100, 2, '.', ',') }}
+                                    </td>
+                                    <td>{{ $item->quantity }}</td>
+                                    <td class="fw-medium ">
+                                        Rp.
+                                        {{ number_format(($item->product->price + ($item->product->price * $item->count) / 100) * $item->quantity, 2, '.', ',') }}
+                                    </td>
+                                </tr>
                             @endforeach
                             <tr class="border-top border-top-dashed">
                                 <td colspan="2"></td>

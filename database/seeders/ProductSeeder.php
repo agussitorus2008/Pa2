@@ -16,7 +16,7 @@ class ProductSeeder extends Seeder
     {
         $data = array(
             [
-                'nama' => 'Stola',                
+                'nama' => 'Stola',
                 'price' => 15000,
                 'stock' => 50,
                 'description' => 'Barang Bagus',
@@ -24,7 +24,7 @@ class ProductSeeder extends Seeder
                 'category' => 'stola'
             ],
             [
-                'nama' => 'sortali',                
+                'nama' => 'sortali',
                 'price' => 30000,
                 'stock' => 50,
                 'description' => 'Barang Bagus',
@@ -32,7 +32,7 @@ class ProductSeeder extends Seeder
                 'category' => 'sortali'
             ],
             [
-                'nama' => 'gantungan',                
+                'nama' => 'gantungan',
                 'price' => 10000,
                 'stock' => 50,
                 'description' => 'Barang Bagus',
@@ -48,7 +48,7 @@ class ProductSeeder extends Seeder
                 'stock' => $d['stock'],
                 'description' => $d['description'],
                 'image' => $d['image'],
-                'category' => $d['category']                
+                'category' => $d['category']
             ]);
         }
     }

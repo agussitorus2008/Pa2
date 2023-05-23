@@ -12,8 +12,13 @@
                 <div class="card-header border-0">
                     <div class="row g-4">
                         <div class="col-sm justify-content-sm-start">
-                            <a href="{{route('admin.order.pdf')}}" class="btn btn-md btn-info me-2 col-md-2" target="_blank"  class="menu-link px-3">Cetak</a>    
+                            <a href="{{ route('admin.order.pdf') }}" class="btn btn-md btn-info me-2 col-md-2"
+                                target="_blank" class="menu-link px-3">Cetak pdf</a>
                         </div>
+                        {{-- <div class="col-sm justify-content-center">
+                            <a href="{{ route('admin.order.downloadexcel') }}" class="btn btn-md btn-info me-2 col-md-2"
+                                target="_blank" class="menu-link px-3">Cetak Exel</a>
+                        </div> --}}
                         <div class="col-sm">
                             <div class="d-flex justify-content-sm-end">
                                 <div class="search-box ms-2">
@@ -33,8 +38,8 @@
     </div>
     <div id="content_detail"></div>
     @section('custom_js')
-    <script>
-        load_list(1);
-    </script>
+        <script>
+            load_list(1);
+        </script>
     @endsection
 </x-app-layout>

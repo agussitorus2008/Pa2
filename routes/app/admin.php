@@ -2,20 +2,22 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Admin\PDFController;
 use App\Http\Controllers\Admin\ChatController;
 use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Admin\ChartsController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProfileController;
-use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\NotificationController;
-use App\Http\Controllers\Admin\PDFController;
 
 
 Route::group(['domain' => ''], function () {
 
     Route::prefix('admin/')->name('admin.')->group(function () {
         Route::redirect('/', 'dashboard', 301);
-        Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
+
+
+        Route::get('chart', [ChartsController::class, 'index'])->name('chart');
 
         //Create Product
         Route::get('main', [ProductController::class, 'index'])->name('main');
@@ -26,10 +28,6 @@ Route::group(['domain' => ''], function () {
         Route::patch('update/{id}', [ProductController::class, 'update'])->name('update');
         Route::delete('destroy/{id}', [ProductController::class, 'destroy'])->name('destroy');
 
-        // //Message
-        // Route::resource('message', MessageController::class);
-
-
         //Profile
         Route::get('mainprofile', [ProfileController::class, 'index'])->name('mainprofile');
         Route::get('editprofile', [ProfileController::class, 'edit'])->name('editprofile');
@@ -38,6 +36,8 @@ Route::group(['domain' => ''], function () {
         //order
         Route::get('order', [OrderController::class, 'index'])->name('order.index');
         Route::get('order/pdf', [OrderController::class, 'pdf'])->name('order.pdf');
+        Route::get('order/excel', [OrderController::class, 'excel'])->name('order.excel');
+        Route::get('order/downloadexcel', [OrderController::class, 'downloadexcel'])->name('order.downloadexcel');
         Route::get('order/{order}', [OrderController::class, 'show'])->name('order.show');
         Route::patch('order/accept/{order}', [OrderController::class, 'accept'])->name('order.accept');
         Route::patch('order/reject/{order}', [OrderController::class, 'reject'])->name('order.reject');
@@ -50,8 +50,5 @@ Route::group(['domain' => ''], function () {
         // NOTIFICATION
         Route::get('counter', [NotificationController::class, 'counter'])->name('counter_notif');
         Route::get('notification', [NotificationController::class, 'index'])->name('notification.index');
-
-        //Export PDF
-        Route::get('pdf', [PDFController::class, 'pdf'])->name('pdf');
     });
 });

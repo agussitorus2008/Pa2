@@ -27,9 +27,9 @@ Route::group(['domain' => ''], function () {
         Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
         //Profile
-        Route::get('mainprofile',[ProfileController::class, 'index'])->name('mainprofile');
-        Route::get('editprofile',[ProfileController::class, 'edit'])->name('editprofile');
-        Route::patch('updateprofile/{id}',[ProfileController::class, 'update'])->name('updateprofile');
+        Route::get('mainprofile', [ProfileController::class, 'index'])->name('mainprofile');
+        Route::get('editprofile', [ProfileController::class, 'edit'])->name('editprofile');
+        Route::patch('updateprofile/{id}', [ProfileController::class, 'update'])->name('updateprofile');
 
         // Menu
         Route::resource('product', ProductController::class);
@@ -66,6 +66,5 @@ Route::group(['domain' => ''], function () {
         Route::post('regional/province', [RegionalController::class, 'province'])->name('regional.province');
         Route::post('regional/city', [RegionalController::class, 'city'])->name('regional.city');
         Route::post('regional/subdistrict', [RegionalController::class, 'subdistrict'])->name('regional.subdistrict');
-
     });
 });

@@ -41,6 +41,12 @@
         });
     </script>
 
+    <!-- echarts js -->
+    <script src="{{ asset('assets/libs/echarts/echarts.min.js') }}"></script>
+
+    <!-- echarts init -->
+    <script src="{{ asset('assets/js/pages/echarts.init.js') }}"></script>
+
     @elserole('user')
     <script>
         localStorage.setItem("route_counter_notif", "{{ route('web.counter_notif') }}");

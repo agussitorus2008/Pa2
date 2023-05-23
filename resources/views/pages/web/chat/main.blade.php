@@ -21,8 +21,8 @@
                                             <div class="d-flex align-items-center">
                                                 <div
                                                     class="flex-shrink-0 chat-user-img online user-own-img align-self-center me-3 ms-0">
-                                                    <img src="assets/images/users/avatar-2.jpg"
-                                                        class="rounded-circle avatar-xs" alt="">
+                                                    {{-- <img src="assets/images/users/avatar-2.jpg"
+                                                        class="rounded-circle avatar-xs" alt=""> --}}
                                                     <span class="user-status"></span>
                                                 </div>
                                                 <div class="flex-grow-1 overflow-hidden">

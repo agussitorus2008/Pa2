@@ -3,14 +3,15 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\product;
-use App\Models\User;
 use App\Models\Order;
-use App\Models\Coupon;
 use App\Models\OrderDetail;
 use App\Models\Notification;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use PDF;
+
+use App\Exports\OrdersExport;
+use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class OrderController extends Controller
 {
@@ -19,12 +20,15 @@ class OrderController extends Controller
         if ($request->ajax()) {
             $orders = Order::where('total', 'like', '%' . $request->keyword . '%')
                 ->orWhere('status', 'like', '%' . $request->keyword . '%')
+                ->orWhere('user_id', 'like', '%' . $request->keyword . '%')
+                ->orWhere('code', 'like', '%' . $request->keyword . '%')
                 ->orWhere('payment', 'like', '%' . $request->keyword . '%')
                 ->latest()->paginate(10);
             return view('pages.admin.orders.list', compact('orders'));
         }
         return view('pages.admin.orders.main');
     }
+    
 
     public function show(Order $order)
     {
@@ -75,10 +79,17 @@ class OrderController extends Controller
         $orders = Order::orderBy('created_at', 'DESC')->get();
         $pdf = PDF::loadView('pages.admin.orders.pdf', ['orders' => $orders]);
         return $pdf->download($orders->first()->code . '-' . $orders->first()->created_at->format('d-m-Y') . '.pdf');
-
-        // $orders = Order::orderBy('created_at', 'DESC')->get();
-        // $pdf = PDF::loadView('pages.admin.orders.pdf', ['orders' => $orders]);
-        // return $pdf->stream();
-        // return $pdf->download($orders->code . '-' . $orders->created_at->format('d-m-Y') . '.pdf');
     }
+
+
+    // public function excel(Order $order)
+    // {
+    //     return view('pages.admin.orders.excel', compact('orders'));
+    // }
+    // public function downloadexcel()
+    // {
+    //     $orders = Order::orderBy('created_at', 'DESC')->get();
+    //     $fileName = $orders->first()->code . '-' . $orders->first()->created_at->format('d-m-Y') . '.xlsx';
+    //     return Excel::download(new OrdersExport($orders), $fileName);
+    // }
 }
