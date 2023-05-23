@@ -59,15 +59,21 @@ class AuthController extends Controller
             return redirect()->back()->withInput($request->only('username'))->withErrors(['msg' => 'Password salah']);
         }
 
+        // if (Auth::attempt($credentials)) {
+        //     if (Auth::user()->roles->first()->name == 'admin') {
+        //         return redirect()->intended('admin/main')
+        //             ->withSuccess('Signed in');
+        //     } else {
+        //         return redirect()->intended('dashboard')
+        //             ->withSuccess('Signed in');
+        //     }
+        // }
         if (Auth::attempt($credentials)) {
-            if (Auth::user()->roles->first()->name == 'admin') {
-                return redirect()->intended('admin/main')
-                    ->withSuccess('Signed in');
-            } else {
-                return redirect()->intended('dashboard')
-                    ->withSuccess('Signed in');
-            }
+            $redirectPath = Auth::user()->hasRole('admin') ? 'admin/main' : 'dashboard';
+
+            return redirect()->intended($redirectPath)->withSuccess('Signed in');
         }
+
         return redirect()->back()->withErrors(['msg' => 'Login details are not valid']);
     }
 

@@ -22,7 +22,7 @@ Route::group(['domain' => ''], function () {
     Route::get('signout', [AuthController::class, 'signOut'])->name('signout');
 
 
-    Route::prefix('')->name('web.')->group(function () {
+    Route::name('web.')->group(function () {
         Route::redirect('/', 'dashboard', 301);
         Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
@@ -32,7 +32,8 @@ Route::group(['domain' => ''], function () {
         Route::patch('updateprofile/{id}', [ProfileController::class, 'update'])->name('updateprofile');
 
         // Menu
-        Route::resource('product', ProductController::class);
+        Route::resource('web/product', ProductController::class);
+
 
 
         // CART

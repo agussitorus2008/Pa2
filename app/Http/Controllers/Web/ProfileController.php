@@ -40,7 +40,7 @@ class ProfileController extends Controller
      */
     public function show(User $user)
     {
-       //
+        //
     }
 
     /**
@@ -48,7 +48,7 @@ class ProfileController extends Controller
      */
 
     //  public function edit($id)
-    //  {   
+    //  {
     //      $product = product::find($id);
     //      return view('pages.admin.product.edit', compact('product', 'id'));
     //  }
@@ -69,18 +69,18 @@ class ProfileController extends Controller
         $request->validate([
             'nama' => 'required|string|max:255',
             'phone' => 'nullable|numeric',
-            'email' => 'required|email|unique:users,email,'.$id,
+            'email' => 'required|email|unique:users,email,' . $id,
             'alamat' => 'nullable',
             'image' => 'nullable',
         ]);
 
-        $item = User::where('id',$id)->first();
+        $item = User::where('id', $id)->first();
 
-        if($request->hasFile('image')){
+        if ($request->hasFile('image')) {
             $file = $request->file('image');
             $namafile = $file->getClientOriginalName();
-            $tujuanFile = 'profile/image';
-            $file->move($tujuanFile,$namafile);
+            $tujuanFile = 'images/profile/image';
+            $file->move($tujuanFile, $namafile);
             $item->image = $namafile;
         }
 
@@ -89,8 +89,8 @@ class ProfileController extends Controller
         $item->email = $request->email;
         $item->alamat = $request->alamat;
         $item->update();
-        
-        if($item) {
+
+        if ($item) {
             return redirect()
                 ->route('web.mainprofile')
                 ->with([

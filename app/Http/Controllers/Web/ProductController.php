@@ -12,7 +12,7 @@ class ProductController extends Controller
     {
         if ($request->ajax()) {
             $products = product::where('nama', 'like', '%' . $request->keyword . '%')->paginate(4);
-            
+
             return view('pages.web.product.list', compact('products'));
         }
         return view('pages.web.product.main');

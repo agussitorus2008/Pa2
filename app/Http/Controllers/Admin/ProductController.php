@@ -40,7 +40,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
 
-        
+
         $request->validate([
             'nama' => 'required|string|max:255',
             'description' => 'required|string',
@@ -49,39 +49,39 @@ class ProductController extends Controller
             'category' => 'required|in:gantungan,stola,sortali',
             'image' => 'required',
         ]);
-        
 
 
-            $item = new product;
 
-            $file = $request->file('image');
-            $namafile = $file->getClientOriginalName();
-            $tujuanFile = 'product/image';
-            $file->move($tujuanFile,$namafile);
-            $item->image = $namafile;
+        $item = new product;
 
-            $item->nama = $request->nama;
-            $item->description = $request->description;
-            $item->price = $request->price;
-            $item->category = $request->category;
-            $item->stock = $request->stock;
-            // dd(request()->all());
-            $item->save();
+        $file = $request->file('image');
+        $namafile = $file->getClientOriginalName();
+        $tujuanFile = 'images/product/image';
+        $file->move($tujuanFile, $namafile);
+        $item->image = $namafile;
 
-            if($item) {
-                return redirect()
-                    ->route('admin.main')
-                    ->with([
-                        'success' => 'New post has been created successfully'
-                    ]);
-            } else {
-                return redirect('admin/store')
-                    ->back()
-                    ->withInput()
-                    ->with([
-                        'error' => 'Some problem occurred, please try again'
-                    ]);
-            }
+        $item->nama = $request->nama;
+        $item->description = $request->description;
+        $item->price = $request->price;
+        $item->category = $request->category;
+        $item->stock = $request->stock;
+        // dd(request()->all());
+        $item->save();
+
+        if ($item) {
+            return redirect()
+                ->route('admin.main')
+                ->with([
+                    'success' => 'New post has been created successfully'
+                ]);
+        } else {
+            return redirect('admin/store')
+                ->back()
+                ->withInput()
+                ->with([
+                    'error' => 'Some problem occurred, please try again'
+                ]);
+        }
     }
 
 
@@ -104,7 +104,7 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {   
+    {
         $product = product::find($id);
         return view('pages.admin.product.edit', compact('product', 'id'));
     }
@@ -118,7 +118,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+
 
         $request->validate([
             'nama' => 'required|string|max:255',
@@ -129,11 +129,11 @@ class ProductController extends Controller
             'image' => 'required',
         ]);
 
-        $item1 = product::where('id',$id)->first();
+        $item1 = product::where('id', $id)->first();
         $file = $request->file('image');
         $namafile = $file->getClientOriginalName();
         $tujuanFile = 'product/image';
-        $file->move($tujuanFile,$namafile);
+        $file->move($tujuanFile, $namafile);
         $item1->image = $namafile;
 
         $item1->nama = $request->nama;
@@ -142,8 +142,8 @@ class ProductController extends Controller
         $item1->price = $request->price;
         $item1->stock = $request->stock;
         $item1->update();
-        
-        if($item1) {
+
+        if ($item1) {
             return redirect()
                 ->route('admin.main')
                 ->with([
@@ -167,8 +167,8 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-    $data = product::findOrFail($id);
-    $data->delete();
-    return redirect()->back()->with('success', 'Data berhasil dihapus.');
+        $data = product::findOrFail($id);
+        $data->delete();
+        return redirect()->back()->with('success', 'Data berhasil dihapus.');
     }
 }

@@ -13,7 +13,7 @@ use App\Http\Controllers\Admin\NotificationController;
 
 Route::group(['domain' => ''], function () {
 
-    Route::prefix('admin/')->name('admin.')->group(function () {
+    Route::prefix('admin')->name('admin.')->group(function () {
         Route::redirect('/', 'dashboard', 301);
 
 

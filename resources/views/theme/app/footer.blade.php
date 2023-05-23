@@ -1,12 +1,12 @@
 <footer class="footer">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-6">
-                <script>document.write(new Date().getFullYear())</script> © Velzon.
-            </div>
-            <div class="col-sm-6">
-                <div class="text-sm-end d-none d-sm-block">
-                    Design & Develop by Themesbrand
+            <div class="col-lg-12">
+                <div class="text-center">
+                    © PA2-12
+                    <script>
+                        document.write(new Date().getFullYear())
+                    </script>
                 </div>
             </div>
         </div>

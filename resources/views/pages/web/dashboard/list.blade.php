@@ -1,4 +1,4 @@
-<div class="row">
+{{-- <div class="row">
     @foreach ($menu as $item)
     <div class="col-sm-6 col-xl-3">
         <!-- Simple card -->
@@ -6,7 +6,7 @@
             <img class="card-img-top img-fluid" src="{{ asset('images/img/'.$item->image) }}" style="height: 150px;" alt="Card image cap">
             <div class="card-body">
                 <h5 style="font-size: 1rem">
-                    {{ $item->nama }} 
+                    {{ $item->nama }}
                 </h5>
                 <small class="text-muted">
                     Stok : {{$item->stock}}
@@ -19,5 +19,5 @@
         </div>
     </div>
     @endforeach
-</div>
+</div> --}}
 {{-- {{ $menu->links('theme.app.pagination') }} <br> --}}
