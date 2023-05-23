@@ -74,7 +74,7 @@
 
                                     <div class="input-step">
                                         <button type="button" onclick="kurang()" class="minus">–</button>
-                                        <input type="number" name="quantity" class="product-quantity" value="1"
+                                        <input type="number" name="stock" class="product-quantity" value="1"
                                             min="0" max="100">
                                         <button type="button" onclick="tambah()" class="plus">+</button>
                                     </div>

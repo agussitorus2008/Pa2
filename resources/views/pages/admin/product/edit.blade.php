@@ -78,7 +78,7 @@
 
                         <div class="input-step">
                             <button type="button" onclick="kurang()" class="minus">–</button>
-                            <input type="number" name="quantity" class="product-quantity" value="1" min="0"
+                            <input type="number" name="stock" class="stock" value="1" min="0"
                                 max="100">
                             <button type="button" onclick="tambah()" class="plus">+</button>
                         </div>
@@ -124,14 +124,14 @@
 
     <script>
         function tambah() {
-            var value = parseInt($('.product-quantity').val());
-            $('.product-quantity').val(value + 1);
+            var value = parseInt($('.stock').val());
+            $('.stock').val(value + 1);
         }
 
         function kurang() {
-            var value = parseInt($('.product-quantity').val());
+            var value = parseInt($('.stock').val());
             if (value > 1) {
-                $('.product-quantity').val(value - 1);
+                $('.stock').val(value - 1);
             }
         }
     </script>
