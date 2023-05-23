@@ -11,6 +11,10 @@
 <script src="{{ asset('js/sweetalert.js') }}"></script>
 <script src="{{ asset('js/plugin.js') }}"></script>
 <script src="{{ asset('js/method.js') }}"></script>
+<script src="{{ asset('assets/js/app.js') }}"></script>
+<script src="{{ asset('assets/libs/swiper/swiper-bundle.min.js') }}"></script>
+<script src="{{ asset('assets/js/pages/dashboard-ecommerce.init.js') }}"></script>
+
 
 <script src="{{ asset('js/jquery.slimscroll.min.js') }}"></script>
 @auth

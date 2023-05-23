@@ -28,7 +28,7 @@ class OrderController extends Controller
         }
         return view('pages.admin.orders.main');
     }
-    
+
 
     public function show(Order $order)
     {

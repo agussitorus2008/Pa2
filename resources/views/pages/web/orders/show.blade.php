@@ -42,7 +42,7 @@
                                         <div class="row justify-content-center">
                                             <div class=" flex-shrink-0 avatar-md bg-light rounded p-1 col-md-4"
                                                 style="width:60%;height:60%;">
-                                                <img src="{{ asset('images/img/' . $item->product->image) }}"
+                                                <img src="{{ asset('images/product/image/' . $item->product->image) }}"
                                                     alt="" class="img-fluid d-block"
                                                     style="height:100%; width:100%; ">
                                                 <div class="flex-grow-1 text-wrap text-center mt-1 ">

@@ -6,7 +6,7 @@
                     <tr>
                         <th>No</th>
                         <th>Nama Pemesan</th>
-                        <th class="col-md-2">Alamat</th>
+                        {{-- <th>Alamat</th> --}}
                         <th>Kode Pos</th>
                         <th>No Hp</th>
                         <th>Total Harga</th>

@@ -15,6 +15,6 @@ class OrderSeeder extends Seeder
     public function run()
     {
         // Generate sample orders
-        Order::factory()->count(100)->create();
+        Order::factory()->count(10)->create();
     }
 }

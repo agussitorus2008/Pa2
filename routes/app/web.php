@@ -4,13 +4,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Web\CartController;
 use App\Http\Controllers\Web\ChatController;
-use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Web\OrderController;
 use App\Http\Controllers\Web\ProductController;
 use App\Http\Controllers\Web\ProfileController;
 use App\Http\Controllers\Web\CheckoutController;
+use App\Http\Controllers\Web\RegionalController;
 use App\Http\Controllers\web\DashboardController;
 use App\Http\Controllers\Web\NotificationController;
-use App\Http\Controllers\Web\RegionalController;
 
 
 

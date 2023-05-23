@@ -175,7 +175,7 @@
                                                 aria-controls="paymentmethodCollapse">
                                                 <div class="form-check card-radio">
                                                     <input id="shippingMethod03" name="payment" type="radio"
-                                                        value="E-money" class="form-check-input">
+                                                        value="E-money" class="form-check-input" required>
                                                     <label class="form-check-label" for="shippingMethod03">
                                                         <span
                                                             class="fs-20 float-end mt-2 text-wrap d-block fw-semibold">E-Money</span>
@@ -332,15 +332,22 @@
             });
 
 
+            // function payment() {
+            //     var payment = $('input[name="payment"]:checked').val();
+            //     console.log(payment);
+            //     if (payment == 'Cash') {
+            //         $('#bukti').hide();
+            //     } else {
+            //         $('#bukti').show();
+            //     }
+
+            // }
+
             function payment() {
                 var payment = $('input[name="payment"]:checked').val();
                 console.log(payment);
-                if (payment == 'Cash') {
-                    $('#bukti').hide();
-                } else {
-                    $('#bukti').show();
-                }
-
+                // Tidak ada pengkondisian untuk pembayaran 'Cash'
+                $('#bukti').show();
             }
 
             function checkout(form, method) {

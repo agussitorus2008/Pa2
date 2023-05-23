@@ -3,7 +3,7 @@
         <div class="navbar-header">
             <div class="d-flex">
                 <!-- LOGO -->
-                <div class="navbar-brand-box horizontal-logo">
+                {{-- <div class="navbar-brand-box horizontal-logo">
                     <a href="index.html" class="logo logo-dark">
                         <span class="logo-sm">
                             <img src="assets/images/logo-sm.png" alt="" height="22">
@@ -21,7 +21,7 @@
                             <img src="assets/images/logo-light.png" alt="" height="17">
                         </span>
                     </a>
-                </div>
+                </div> --}}
 
                 <button type="button" class="btn btn-sm px-3 fs-16 header-item vertical-menu-btn topnav-hamburger"
                     id="topnav-hamburger-icon">
@@ -32,8 +32,10 @@
                     </span>
                 </button>
 
+
+
                 <!-- App Search-->
-                <form class="app-search d-none d-md-block">
+                {{-- <form class="app-search d-none d-md-block">
                     {{-- <div class="position-relative">
                         <input type="text" class="form-control" placeholder="Search..." autocomplete="off"
                             id="search-options" value="">
@@ -41,7 +43,7 @@
                         <span class="mdi mdi-close-circle search-widget-icon search-widget-icon-close d-none"
                             id="search-close-options"></span>
                     </div> --}}
-                    <div class="dropdown-menu dropdown-menu-lg" id="search-dropdown">
+                {{-- <div class="dropdown-menu dropdown-menu-lg" id="search-dropdown">
                         <div data-simplebar style="max-height: 320px;">
                             <!-- item-->
                             <div class="dropdown-header">
@@ -123,13 +125,13 @@
                             <a href="pages-search-results.html" class="btn btn-primary btn-sm">View All Results <i
                                     class="ri-arrow-right-line ms-1"></i></a>
                         </div>
-                    </div>
-                </form>
+                    </div> --}}
+                {{-- </form> --}}
             </div>
 
             <div class="d-flex align-items-center">
 
-                <div class="dropdown d-md-none topbar-head-dropdown header-item">
+                {{-- <div class="dropdown d-md-none topbar-head-dropdown header-item">
                     <button type="button" class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle"
                         id="page-header-search-dropdown" data-bs-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
@@ -148,7 +150,7 @@
                             </div>
                         </form>
                     </div>
-                </div>
+                </div> --}}
                 @guest
                     <div class="dropdown ms-sm-3 header-item ">
                         <a href="{{ route('login') }}" class="btn btn-success">
@@ -170,8 +172,7 @@
                                 id="page-header-notifications-dropdown" data-bs-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false">
                                 <i class="bx bx-bell fs-22"></i>
-                                <span
-                                    class="position-absolute topbar-badge fs-10 translate-middle badge rounded-pill bg-danger"
+                                <span class="position-absolute topbar-badge fs-10 translate-middle badge rounded-pill bg-danger"
                                     id="top-notification-number"></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end p-0 " style="width: 25rem"

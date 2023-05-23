@@ -17,6 +17,10 @@
                     <img src="{{ asset('images/profile/image/Soubat.png') }}" alt="" class=" bg-roun"
                         height="90" width="90">
                 </span>
+                <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover"
+                    id="vertical-hover">
+                    <i class="ri-record-circle-line"></i>
+                </button>
             </div>
             <div id="scrollbar">
                 <div class="container-fluid">
@@ -94,7 +98,7 @@
 
                                 <!-- end Dashboard Menu -->
 
-                                {{-- <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-pages">Pages</span>
+                                <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-pages">Pages</span>
                                 </li>
 
 
@@ -110,11 +114,12 @@
                                                 <a href="{{ route('web.mainprofile') }}" class="nav-link"> Profile </a>
                                             </li>
                                             <li class="nav-item">
-                                                <a href="#" class="nav-link"> Order </a>
+                                                <a href="{{ route('web.order.index') }}" class="nav-link"> Order </a>
+                                                {{-- <a href="#" class="nav-link"> Order </a> --}}
                                             </li>
                                         </ul>
                                     </div>
-                                </li> --}}
+                                </li>
                             @endrole
                         @endauth
 

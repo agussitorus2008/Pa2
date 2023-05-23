@@ -35,6 +35,7 @@ class AdminSeeder extends Seeder
             'email' => 'agussitorus24@gmail.com',
             'password' => Hash::make('agus12345')
         ]);
+        $user->assignRole('user');
 
         $user = User::create([
             'nama' => 'Tesya',
@@ -45,6 +46,7 @@ class AdminSeeder extends Seeder
             'email' => 'agussitorus25@gmail.com',
             'password' => Hash::make('agus12345')
         ]);
+        $user->assignRole('user');
 
         $user = User::create([
             'nama' => 'Cici',
@@ -55,6 +57,6 @@ class AdminSeeder extends Seeder
             'email' => 'agussitorus26@gmail.com',
             'password' => Hash::make('agus12345')
         ]);
-        $user->assignRole(self::ROLE_CUSTOMER);
+        $user->assignRole('user');
     }
 }
