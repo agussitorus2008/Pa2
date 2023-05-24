@@ -59,28 +59,14 @@
                                                 <i class="ri-pencil-fill fs-16"></i>
                                             </a>
                                         </li>
+
                                         <li class="list-inline-item" data-bs-toggle="tooltip" data-bs-trigger="hover"
                                             data-bs-placement="top" title="" data-bs-original-title="Remove">
-
-                                            {{-- <a href="{{ route('admin.destroy',$item->id) }}"
-                                            class="text-danger d-inline-block remove-item-btn">
-                                            <i class="ri-delete-bin-5-fill fs-16"></i>
-                                        </a> --}}
-                                            {{-- <form action="{{ route('admin.destroy',$item->id) }}" method="DELETE">
-                                            <button type="submit" class="text-danger d-inline-block remove-item-btn"><i class="ri-delete-bin-5-fill fs-16"></i></button>
-                                        </form> --}}
-
-                                            <form action="{{ route('admin.destroy', $item->id) }}" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-danger">Delete</button>
-                                            </form>
-
-                                            {{-- <form method="DELETE" action="{{ route('admin.destroy',$item->id) }}">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Hapus</button>
-                                        </form> --}}
+                                            <a href="javascript:;"
+                                                onclick="handle_confirm('Apakah Anda Yakin?', 'Yakin', 'Tidak', 'DELETE', '{{ route('admin.destroy', $item->id) }}');"
+                                                class="text-danger d-inline-block remove-item-btn">
+                                                <i class="ri-delete-bin-5-fill fs-16"></i>
+                                            </a>
                                         </li>
                                     </ul>
 
@@ -92,6 +78,4 @@
             </div>
         </div>
     </div>
-
-
-    </x-app-layouts>
+</x-app-layout>

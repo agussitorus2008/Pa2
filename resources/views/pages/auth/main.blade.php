@@ -16,53 +16,46 @@
                                 <form class="needs-validation" method="post" action="{{ route('login.custom') }}">
                                     @csrf
 
-                                    @if ($errors->any())
+                                    {{-- @if ($errors->any())
                                         <div class="alert alert-danger">
                                             @foreach ($errors->all() as $error)
                                                 <p>{{ $error }}</p>
                                             @endforeach
                                         </div>
-                                    @endif
+                                    @endif --}}
 
                                     <div class="mb-3">
                                         <label for="username" class="form-label">Username</label>
                                         <input type="text" name="username"
                                             class="form-control @error('username') is-invalid @enderror" id="username"
-                                            placeholder="Masukkan Username Anda">
+                                            placeholder="Masukkan Username Anda" value="{{ old('username') }}">
                                         @error('username')
-                                            <div class="alert alert-danger">
+                                            <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>
                                         @enderror
-
                                     </div>
 
                                     <div class="mb-3">
-                                        {{-- <div class="float-end">
-                                            <a href="auth-pass-reset-basic.html" class="text-muted">Forgot password?</a>
-                                        </div> --}}
                                         <label class="form-label" for="password-input">Password</label>
                                         <div class="position-relative auth-pass-inputgroup mb-3">
-                                            <input type="password" name="password" class="form-control pe-5"
+                                            <input type="password" name="password"
+                                                class="form-control pe-5 @error('password') is-invalid @enderror"
                                                 placeholder="Enter password" id="password-input">
                                             <button
                                                 class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted"
-                                                type="button" id="password-addon"><i
-                                                    class="ri-eye-fill align-middle"></i></button>
+                                                type="button" id="password-addon">
+                                                <i class="ri-eye-fill align-middle"></i>
+                                            </button>
+                                            @error('password')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
-                                        @error('password')
-                                            <div class="alert alert-danger">
-                                                {{ $message }}
-                                            </div>
-                                        @enderror
 
                                     </div>
 
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value=""
-                                            id="auth-remember-check">
-                                        <label class="form-check-label" for="auth-remember-check">Remember me</label>
-                                    </div>
 
                                     <div class="mt-4">
                                         <button class="btn btn-success w-100" type="submit">Login</button>

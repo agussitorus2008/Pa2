@@ -105,12 +105,9 @@ function handle_confirm(title, confirm_title, deny_title, method, route) {
                 url: route,
                 dataType: "json",
                 success: function (response) {
-                    if (response.redirect == "input") {
-                        load_input(response.route);
-                    } else {
-                        load_list(1);
-                    }
-                    Swal.fire(response.message, "", response.alert);
+                    Swal.fire(response.message, "", response.alert).then(() => {
+                        location.reload();
+                    });
                 },
             });
         } else if (result.isDenied) {

@@ -165,10 +165,14 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function destroy($id)
     {
-        $data = product::findOrFail($id);
+        $data = Product::findOrFail($id);
         $data->delete();
-        return redirect()->back()->with('success', 'Data berhasil dihapus.');
+        return response()->json([
+            'redirect' => 'reload',
+            'message' => 'Data berhasil dihapus'
+        ]);
     }
 }

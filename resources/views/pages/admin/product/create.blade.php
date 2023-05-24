@@ -44,7 +44,7 @@
                         <option disabled selected>Pilih Jenis Product</option>
                         <option value="stola">Stola</option>
                         <option value="sortali">Sortali</option>
-                        <option value="gantungan_kunci">Gantugan Kunci</option>
+                        <option value="gantungan">Gantugan Kunci</option>
                     </select>
                 </div>
                 @error('category')

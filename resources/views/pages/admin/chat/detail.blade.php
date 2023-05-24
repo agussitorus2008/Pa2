@@ -41,7 +41,7 @@
                         <ul class="list-unstyled chat-conversation-list" id="users-conversation">
                             @if ($chats->count() > 0)
                                 @if ($chats->sent_by == 1)
-                                    <li class="chat-list left">
+                                    <li class="chat-list right">
                                         <div class="conversation-list">
                                             <div class="chat-avatar">
                                                 <img src="assets/images/users/avatar-2.jpg" alt="" />
@@ -83,7 +83,7 @@
                                 @endif
                                 @foreach ($chats->children as $chat)
                                     @if ($chat->sent_by == 1)
-                                        <li class="chat-list left">
+                                        <li class="chat-list right ">
                                             <div class="conversation-list">
                                                 <div class="user-chat-content">
                                                     <div class="ctext-wrap">
@@ -101,7 +101,7 @@
                                             </div>
                                         </li>
                                     @else
-                                        <li class="chat-list right">
+                                        <li class="chat-list left">
                                             <div class="conversation-list">
                                                 <div class="user-chat-content">
                                                     <div class="ctext-wrap">

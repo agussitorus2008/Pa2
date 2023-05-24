@@ -1,4 +1,4 @@
-<x-app-layout title="Home">
+{{-- <x-app-layout title="Home">
     <div class="container-fluid">
 
         <!-- start page title -->
@@ -33,46 +33,42 @@
                         </tr>
                     </thead>
                     <tbody class="list form-check-all bg-white">
-                        {{-- @foreach($menu as $key => $item) --}}
-                        <tr>
-                            <td ></td>
-                            <td class="text-capitalize"></td>
-                            <td class="text-capitalize"></td>
-                            <td class="text-capitalize"></td>
-                            <td class="text-capitalize"></td>
-                            <td>
-                                <ul class="list-inline hstack gap-2 mb-0">
-                                    <li class="list-inline-item show" data-bs-toggle="tooltip" data-bs-trigger="hover"
-                                        data-bs-placement="top" title="" data-bs-original-title="show">
-                                        <a href="{{ route('admin.create') }}"
-                                            class="text-primary d-inline-block edit-item-btn">
-                                            <i class="ri-eye-fill fs-16"></i>
-                                        </a>
-                                    <li class="list-inline-item edit" data-bs-toggle="tooltip" data-bs-trigger="hover"
-                                        data-bs-placement="top" title="" data-bs-original-title="Edit">
-                                        <a href="{{ route('admin.create') }}"
-                                            class="text-primary d-inline-block edit-item-btn">
-                                            <i class="ri-pencil-fill fs-16"></i>
-                                        </a>
-                                    </li>
-                                    <li class="list-inline-item" data-bs-toggle="tooltip" data-bs-trigger="hover"
-                                        data-bs-placement="top" title="" data-bs-original-title="Remove">
-                                        <a href="{{ route('admin.create') }}"
-                                            class="text-danger d-inline-block remove-item-btn">
-                                            <i class="ri-delete-bin-5-fill fs-16"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-    
-                            </td>
-                        </tr>
-                        {{-- @endforeach --}}
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+                        {{-- @foreach ($menu as $key => $item) --}}
+{{-- <tr>
+    <td></td>
+    <td class="text-capitalize"></td>
+    <td class="text-capitalize"></td>
+    <td class="text-capitalize"></td>
+    <td class="text-capitalize"></td>
+    <td>
+        <ul class="list-inline hstack gap-2 mb-0">
+            <li class="list-inline-item show" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top"
+                title="" data-bs-original-title="show">
+                <a href="{{ route('admin.create') }}" class="text-primary d-inline-block edit-item-btn">
+                    <i class="ri-eye-fill fs-16"></i>
+                </a>
+            <li class="list-inline-item edit" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top"
+                title="" data-bs-original-title="Edit">
+                <a href="{{ route('admin.create') }}" class="text-primary d-inline-block edit-item-btn">
+                    <i class="ri-pencil-fill fs-16"></i>
+                </a>
+            </li>
+            <li class="list-inline-item" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top"
+                title="" data-bs-original-title="Remove">
+                <a href="{{ route('admin.create') }}" class="text-danger d-inline-block remove-item-btn">
+                    <i class="ri-delete-bin-5-fill fs-16"></i>
+                </a>
+            </li>
+        </ul>
+
+    </td>
+</tr> --}}
+{{-- @endforeach --}}
+{{-- </tbody>
+</table>
+</div>
+</div>
+</div>
 
 
-</x-app-layouts>
-
+</x-app-layouts> --}}

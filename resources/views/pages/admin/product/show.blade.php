@@ -16,12 +16,15 @@
             <div class="row gx-lg-5">
                 <div class="col-xl-4 col-md-8 mx-auto">
                     <div class="product-img-slider sticky-side-div">
-                        <div class="swiper product-thumbnail-slider p-2 rounded bg-light swiper-initialized swiper-horizontal swiper-pointer-events">
+                        <div
+                            class="swiper product-thumbnail-slider p-2 rounded bg-light swiper-initialized swiper-horizontal swiper-pointer-events">
                             <div class="swiper-wrapper" id="swiper-wrapper-3d89eb772a51055d" aria-live="polite"
-                                    style="transform: translate3d(0px, 0px, 0px);">
-                                <div class="swiper-slide swiper-slide-active mx-auto" role="group" aria-label="1 / 4" style="width: 218px; ">
-                                    <img src="{{asset('product/image/'.$product->image)}}" alt="" class="img-fluid d-block" />
-                                    
+                                style="transform: translate3d(0px, 0px, 0px);">
+                                <div class="swiper-slide swiper-slide-active mx-auto" role="group" aria-label="1 / 4"
+                                    style="width: 218px; ">
+                                    <img src="{{ asset('images/product/image/' . $product->image) }}" alt=""
+                                        class="img-fluid d-block" />
+
                                 </div>
                             </div>
                         </div>
@@ -50,7 +53,7 @@
                                     <div class="d-flex align-items-center">
                                         <div class="avatar-sm me-2">
                                             <div class="avatar-title rounded bg-transparent text-info fs-24">
-                                                <i class=" bx bx-task"></i>                                        
+                                                <i class=" bx bx-task"></i>
                                             </div>
                                         </div>
                                         <div class="flex-grow-1">
@@ -93,8 +96,8 @@
                                 </div>
                             </div>
                         </div>
-                        
-                        
+
+
                     </div>
                     <div class="mt-4 text-muted">
                         <h5 class="fs-14">Description :</h5>
@@ -102,12 +105,12 @@
                     </div>
                 </div>
                 <div class="hstack gap-2 justify-content">
-                    <a type="button" class="btn btn-light" href="{{ route('admin.main') }}" ><i class="fas fa-times"></i> Kembali</a>
+                    <a type="button" class="btn btn-light" href="{{ route('admin.main') }}"><i
+                            class="fas fa-times"></i> Kembali</a>
                 </div>
             </div>
         </div>
     </div>
 
 
-</x-app-layouts>
-
+    </x-app-layouts>
