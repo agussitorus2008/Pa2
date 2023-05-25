@@ -16,18 +16,40 @@ class ChartsController extends Controller
     public function index()
     {
         // get data total account group by day
+        // $orders = DB::table('orders')
+        //     ->selectRaw('COUNT(*) as total, DAYNAME(created_at) as day_name')
+        //     ->groupBy(DB::raw('DAY(created_at)'))
+        //     ->get()->toArray();
+
+        // $data = [];
+
+        // foreach ($orders as $row) {
+        //     $data['label'][] = $row->day_name;
+        //     $data['data'][] = (int) $row->total;
+        // }
+        // // dd($data);
+
+        // return view('pages.admin.charts.main', compact('data'));
+
         $orders = DB::table('orders')
-            ->selectRaw('COUNT(*) as total, DAYNAME(created_at) as day_name')
+            ->selectRaw("
+        COUNT(*) as total,
+        DAYNAME(created_at) as day_name,
+        SUM(CASE WHEN status = 'accepted' THEN 1 ELSE 0 END) as accepted,
+        SUM(CASE WHEN status = 'rejected' THEN 1 ELSE 0 END) as rejected
+    ")
             ->groupBy(DB::raw('DAY(created_at)'))
-            ->get()->toArray();
+            ->get()
+            ->toArray();
 
         $data = [];
 
         foreach ($orders as $row) {
             $data['label'][] = $row->day_name;
             $data['data'][] = (int) $row->total;
+            $data['accepted'][] = (int) $row->accepted;
+            $data['rejected'][] = (int) $row->rejected;
         }
-        // dd($data);
 
         return view('pages.admin.charts.main', compact('data'));
     }
