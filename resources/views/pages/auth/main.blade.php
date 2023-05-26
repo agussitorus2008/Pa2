@@ -16,13 +16,13 @@
                                 <form class="needs-validation" method="post" action="{{ route('login.custom') }}">
                                     @csrf
 
-                                    {{-- @if ($errors->any())
+                                    @if ($errors->any())
                                         <div class="alert alert-danger">
                                             @foreach ($errors->all() as $error)
                                                 <p>{{ $error }}</p>
                                             @endforeach
                                         </div>
-                                    @endif --}}
+                                    @endif
 
                                     <div class="mb-3">
                                         <label for="username" class="form-label">Username</label>
