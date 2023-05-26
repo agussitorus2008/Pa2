@@ -21,7 +21,23 @@ class OrderFactory extends Factory
      */
     public function definition()
     {
-        $createdAt = $this->faker->randomElement([now(), now()->subDays(365)]);
+        // $createdAt = $this->faker->randomElement([now(), now()->subDays(365)]);
+
+        // return [
+        //     'code' => $this->faker->unique()->randomNumber(),
+        //     'user_id' => function () {
+        //         return \App\Models\User::factory()->create()->id;
+        //     },
+        //     'total' => $this->faker->randomFloat(2, 10, 100),
+        //     'payment' => $this->faker->randomElement(['Emoney']),
+        //     'image' => $this->faker->imageUrl(),
+        //     'status' => $this->faker->randomElement(['pending', 'accepted', 'rejected']),
+        //     'created_at' => $createdAt,
+        //     'updated_at' => now(),
+        //     'deleted_at' => null,
+        // ];
+
+        $createdAt = now();
 
         return [
             'code' => $this->faker->unique()->randomNumber(),
@@ -36,5 +52,22 @@ class OrderFactory extends Factory
             'updated_at' => now(),
             'deleted_at' => null,
         ];
+
+
+        // $createdAt = $this->faker->dateTimeBetween('-365 days', 'now');
+
+        // return [
+        //     'code' => $this->faker->unique()->randomNumber(),
+        //     'user_id' => function () {
+        //         return \App\Models\User::factory()->create()->id;
+        //     },
+        //     'total' => $this->faker->randomFloat(2, 10, 100),
+        //     'payment' => $this->faker->randomElement(['Emoney']),
+        //     'image' => $this->faker->imageUrl(),
+        //     'status' => $this->faker->randomElement(['pending', 'accepted', 'rejected']),
+        //     'created_at' => $createdAt,
+        //     'updated_at' => now(),
+        //     'deleted_at' => null,
+        // ];
     }
 }
