@@ -63,7 +63,7 @@
                                     </li>
                                     <!-- chat-list -->
                                 @else
-                                    <li class="chat-list right">
+                                    <li class="chat-list left">
                                         <div class="conversation-list">
                                             <div class="user-chat-content">
                                                 <div class="ctext-wrap">
