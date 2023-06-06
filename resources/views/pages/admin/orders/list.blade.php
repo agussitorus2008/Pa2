@@ -20,8 +20,8 @@
                         <tr>
                             <td>{{ $orders->firstItem() + $key }}</td>
                             <td>{{ $item->user->nama }}</td>
-                            {{-- <td>{{ $item->user->alamat . ' , ' . $item->user->subdistrict->nama . ' , ' . $item->user->city->nama . ' , ' . $item->user->province->nama }}
-                            </td> --}}
+                            {{-- <td>{{ $item->user->alamat . ' , ' . $item->user->subdistrict->nama . ' , ' . $item->user->city->nama . ' , ' . $item->user->province->nama }} --}}
+                            </td>
                             <td>{{ $item->user->postal_code }}</td>
                             <td>{{ $item->user->phone }}</td>
                             <td>{{ $item->total }}</td>

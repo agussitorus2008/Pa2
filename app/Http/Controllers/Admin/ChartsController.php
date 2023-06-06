@@ -15,39 +15,6 @@ class ChartsController extends Controller
      */
     public function index()
     {
-
-        // Mendapatkan tanggal awal dan akhir minggu ini
-        // $startDate = Carbon::now()->startOfWeek();
-        // $endDate = Carbon::now()->endOfWeek();
-
-        // $orders = DB::table('orders')
-        //     ->selectRaw("
-        //         COUNT(*) as total,
-        //         DAYNAME(created_at) as day_name,
-        //         SUM(CASE WHEN status = 'accepted' THEN 1 ELSE 0 END) as accepted,
-        //         SUM(CASE WHEN status = 'rejected' THEN 1 ELSE 0 END) as rejected
-        //     ")
-        //     ->whereBetween('created_at', [$startDate, $endDate])
-        //     ->groupBy(DB::raw('DAYNAME(created_at)'))
-        //     ->get();
-
-        // $data = [
-        //     'label' => [],
-        //     'data' => [],
-        //     'accepted' => [],
-        //     'rejected' => []
-        // ];
-
-        // foreach ($orders as $row) {
-        //     $data['label'][] = $row->day_name;
-        //     $data['data'][] = (int) $row->total;
-        //     $data['accepted'][] = (int) $row->accepted;
-        //     $data['rejected'][] = (int) $row->rejected;
-        // }
-
-        // return view('pages.admin.charts.main', compact('data'));
-
-        // Mendapatkan tanggal awal dan akhir minggu ini
         $startDate = Carbon::now()->startOfWeek();
         $endDate = Carbon::now()->endOfWeek();
 

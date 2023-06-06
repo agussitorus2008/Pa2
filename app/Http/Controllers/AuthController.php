@@ -69,7 +69,7 @@ class AuthController extends Controller
         //     }
         // }
         if (Auth::attempt($credentials)) {
-            $redirectPath = Auth::user()->hasRole('admin') ? 'admin/main' : 'dashboard';
+            $redirectPath = Auth::user()->hasRole('admin') ? 'admin/chart' : 'sejarah';
 
             return redirect()->intended($redirectPath)->withSuccess('Signed in');
         }
@@ -130,6 +130,6 @@ class AuthController extends Controller
         Session::flush();
         Auth::logout();
 
-        return redirect('dashboard');
+        return redirect('sejarah');
     }
 }

@@ -2,12 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\Admin\PDFController;
 use App\Http\Controllers\Admin\ChatController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ChartsController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\SejarahController;
 use App\Http\Controllers\Admin\NotificationController;
 
 
@@ -47,8 +47,12 @@ Route::group(['domain' => ''], function () {
         Route::get('chat/{id}', [ChatController::class, 'show'])->name('chat.show');
         Route::post('chat', [ChatController::class, 'store'])->name('chat.send');
 
+
         // NOTIFICATION
         Route::get('counter', [NotificationController::class, 'counter'])->name('counter_notif');
         Route::get('notification', [NotificationController::class, 'index'])->name('notification.index');
+
+        //Sejarah
+        Route::resource('sejarah', SejarahController::class);
     });
 });
