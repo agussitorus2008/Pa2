@@ -6,7 +6,7 @@
                     <tr>
                         <th>No</th>
                         <th>Nama Pemesan</th>
-                        {{-- <th>Alamat</th> --}}
+                        <th>Alamat</th>
                         <th>Kode Pos</th>
                         <th>No Hp</th>
                         <th>Total Harga</th>
@@ -20,7 +20,7 @@
                         <tr>
                             <td>{{ $orders->firstItem() + $key }}</td>
                             <td>{{ $item->user->nama }}</td>
-                            {{-- <td>{{ $item->user->alamat . ' , ' . $item->user->subdistrict->nama . ' , ' . $item->user->city->nama . ' , ' . $item->user->province->nama }} --}}
+                            <td>{{ $item->user->alamat . ' , ' . $item->user->subdistrict->name . ' , ' . $item->user->city->name . ' , ' . $item->user->province->name }}
                             </td>
                             <td>{{ $item->user->postal_code }}</td>
                             <td>{{ $item->user->phone }}</td>
