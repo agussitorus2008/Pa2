@@ -12,36 +12,17 @@ use Illuminate\Support\Facades\Validator;
 
 class ChatController extends Controller
 {
-    // public function index()
-    // {
-    //     $users = User::where('id', '!=', '1')->get();
-    //     return view('pages.admin.chat.main', compact('users'));
-    // }
-
-    // public function index(Request $request)
-    // {
-    //     if ($request->ajax()) {
-    //         $users = User::where('nama', 'like', '%' . $request->keyword . '%')->get();
-    //         return response()->json(['users' => $users]);
-    //     }
-
-    //     $users = User::where('id', '!=', 1)->get();
-    //     return view('pages.admin.chat.main', compact('users'));
-    // }
-
-
-
     public function index(Request $request)
     {
-        $search = $request->input('search');
-        $users = User::where('id', '!=', '1')
-            ->when($search, function ($query, $search) {
-                return $query->where('nama', 'like', '%' . $search . '%');
-            })
-            ->get();
+        // dd($request->all());
+        if ($request->ajax()) {
+            $users = User::where('nama', 'like', '%' . $request->keyword . '%')->get();
+            return view('pages.admin.chat.list', compact('users'));
+        }
+
+        $users = User::where('id', '!=', 1)->get();
         return view('pages.admin.chat.main', compact('users'));
     }
-
 
     public function store(Request $request)
     {
