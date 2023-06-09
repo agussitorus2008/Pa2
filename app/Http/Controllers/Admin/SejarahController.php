@@ -38,7 +38,7 @@ class SejarahController extends Controller
 
         $file = $request->file('image');
         $namafile = $file->getClientOriginalName();
-        $tujuanFile = 'images/product/image';
+        $tujuanFile = 'images/sejarah/image';
         $file->move($tujuanFile, $namafile);
         $newSejarah->image = $namafile;
 
@@ -65,7 +65,7 @@ class SejarahController extends Controller
 
         $file = $request->file('image');
         $namafile = $file->getClientOriginalName();
-        $tujuanFile = 'images/product/image';
+        $tujuanFile = 'images/sejarah/image';
 
         $file->move($tujuanFile, $namafile);
 
