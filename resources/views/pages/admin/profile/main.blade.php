@@ -63,13 +63,13 @@
                                                         <table class="table table-borderless mb-0">
                                                             <tbody>
                                                                 <tr>
-                                                                    <th class="ps-0" scope="row">User Name</th>
+                                                                    <th class="ps-0" scope="row">Username</th>
                                                                     </th>
                                                                     <td class="text-muted">:
                                                                         {{ $admin = Auth::user()->username }}</td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <th class="ps-0" scope="row">Phone Number </th>
+                                                                    <th class="ps-0" scope="row">No.Hp </th>
                                                                     <td class="text-muted">:
                                                                         {{ $admin = Auth::user()->phone }}</td>
                                                                 </tr>

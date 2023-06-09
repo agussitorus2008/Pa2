@@ -61,13 +61,13 @@
                                                         <table class="table table-borderless mb-0">
                                                             <tbody>
                                                                 <tr>
-                                                                    <th class="ps-0" scope="row">User Name</th>
+                                                                    <th class="ps-0" scope="row">Usename</th>
                                                                     </th>
                                                                     <td class="text-muted">:
                                                                         {{ Auth::user()->username }}</td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <th class="ps-0" scope="row">Phone Number </th>
+                                                                    <th class="ps-0" scope="row">No.hp </th>
                                                                     <td class="text-muted">: {{ Auth::user()->phone }}
                                                                     </td>
                                                                 </tr>
@@ -81,14 +81,6 @@
                                                                     <td class="text-muted">: {{ Auth::user()->alamat }}
                                                                     </td>
                                                                 </tr>
-                                                                {{-- <tr>
-                                                                        <th class="ps-0" scope="row">Credit Card </th>
-                                                                        <td class="text-muted">: ID:</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th class="ps-0" scope="row">Joining Date</th>
-                                                                        <td class="text-muted">: 24 Nov 2021</td>
-                                                                    </tr> --}}
                                                             </tbody>
                                                         </table>
                                                     </div>

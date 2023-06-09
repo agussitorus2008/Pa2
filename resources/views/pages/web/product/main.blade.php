@@ -23,7 +23,7 @@
                                 <div class="search-box ms-2">
                                     <form id="content_filter">
                                         <input type="text" name="keyword" onkeyup="load_list(1);"
-                                            class="form-control" placeholder="Search Products...">
+                                            class="form-control" placeholder="Cari Product...">
                                         <i class="ri-search-line search-icon"></i>
                                     </form>
                                 </div>

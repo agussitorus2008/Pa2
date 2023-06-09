@@ -31,11 +31,10 @@
             <div class="col-xxl-12">
                 <div class="card">
                     <div class="card-header">
-                        <ul class="nav nav-tabs-custom rounded card-header-tabs border-bottom-0"
-                            role="tablist">
+                        <ul class="nav nav-tabs-custom rounded card-header-tabs border-bottom-0" role="tablist">
                             <li class="nav-item m-3">
-                                    <h5>Profile</h5>
-                                    
+                                <h5>Profile</h5>
+
                                 </a>
                             </li>
                         </ul>
@@ -43,32 +42,34 @@
                     <div class="card-body p-4">
                         <div class="tab-content">
                             <div class="tab-pane active" id="personalDetails" role="tabpanel">
-                                <form class="needs-validation" method="post" action="{{ route('web.updateprofile', $user->id) }}" enctype="multipart/form-data">
+                                <form class="needs-validation" method="post"
+                                    action="{{ route('web.updateprofile', $user->id) }}" enctype="multipart/form-data">
                                     @csrf
                                     @method('PATCH')
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="mb-3">
-                                                <label for="firstnameInput" class="form-label">Nama</label>                                                     
-                                                <input type="text" name="nama" class="form-control" id="Enter nama"
-                                                    placeholder="Enter your firstname" value="{{$user->nama}}">
+                                                <label for="firstnameInput" class="form-label">Nama</label>
+                                                <input type="text" name="nama" class="form-control"
+                                                    id="Enter nama" placeholder="Enter your firstname"
+                                                    value="{{ $user->nama }}">
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="mb-3">
                                                 <label for="image" class="form-label">Gambar</label>
-                                                <input type="file" name="image" class="form-control" placeholder="Masukkan Gambar" value="{{ $user->image }}" >
+                                                <input type="file" name="image" class="form-control"
+                                                    placeholder="Masukkan Gambar" value="{{ $user->image }}">
                                             </div>
                                         </div>
                                         <!--end col-->
                                         <!--end col-->
                                         <div class="col-lg-6">
                                             <div class="mb-3">
-                                                <label for="phonenumberInput" class="form-label">No HP</label>                                                      
-                                                <input type="number" name="phone" class="form-control" 
-                                                    id="phonenumberInput"
-                                                    placeholder="Enter your phone number"
-                                                    value="{{$user->phone}}">
+                                                <label for="phonenumberInput" class="form-label">No HP</label>
+                                                <input type="number" name="phone" class="form-control"
+                                                    id="phonenumberInput" placeholder="Enter your phone number"
+                                                    value="{{ $user->phone }}">
                                             </div>
                                         </div>
                                         <!--end col-->
@@ -76,87 +77,26 @@
                                             <div class="mb-3">
                                                 <label for="emailInput" class="form-label">Email
                                                     Address</label>
-                                                <input type="email" name="email" class="form-control" id="emailInput"
-                                                    placeholder="Enter your email"
-                                                    value="{{$user->email}}">
-                                            </div>
-                                        </div>
-                                        {{-- <div class="col-lg-6">
-                                            <div class="mb-3">
-                                                <label for="JoiningdatInput" class="form-label">Joining
-                                                    Date</label>
-                                                <input type="text" class="form-control"
-                                                    data-provider="flatpickr" id="JoiningdatInput"
-                                                    data-date-format="d M, Y"
-                                                    data-deafult-date="24 Nov, 2021"
-                                                    placeholder="Select date" />
-                                            </div>
-                                        </div> --}}
-                                        <div class="col-lg-6">
-                                            <div class="mb-3">
-                                                <label for="alamat"  class="form-label">Alamat
-                                                    </label>
-                                                <input type="text" name="alamat" class="form-control" id="emailInput"
-                                                    placeholder="Enter your Alamat"
-                                                    value="{{$user->alamat}}">
-                                            </div>
-                                        </div>
-                                        <!--end col-->
-                                        
-                                        {{-- <div class="col-lg-3">
-                                            <div class="mb-3">
-                                                <label for="province" class="form-label">Provinsi</label>
-                                                <select class="form-control" data-choices id="subdistrict" name="subdistrict">
-                                                </select>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-3">
-                                            <div class="mb-3">
-                                                <label for="city" class="form-label">Kota</label>
-                                                <select class="form-control" data-choices id="subdistrict" name="subdistrict">
-                                                </select>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-3">
-                                            <div class="mb-3">
-                                                <label for="district" class="form-label">Kecamatan</label>
-                                                <select class="form-control" data-choices id="subdistrict" name="subdistrict">
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3">
-                                            <div class="mb-3">
-                                                <label for="address" class="form-label">Kode Pos</label>
-                                                <select class="form-control" data-choices id="subdistrict" name="subdistrict">
-                                                </select>
-                                            </div>
-                                            </div>
-                                        <div class="col-lg-6">
-                                            <div class="mb-3">
-                                                <label for="address" class="form-label">Nama Kartu</label>
-                                                <input type="text" class="form-control" id="emailInput"
-                                                    placeholder="Enter your Alamat"
-                                                    value="0987654321">
+                                                <input type="email" name="email" class="form-control"
+                                                    id="emailInput" placeholder="Enter your email"
+                                                    value="{{ $user->email }}">
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="mb-3">
-                                                <label for="address" class="form-label">Nomor Kartu</label>
-                                                <input type="text" class="form-control" id="emailInput"
-                                                    placeholder="Enter your Alamat"
-                                                    value="0987654321">
+                                                <label for="alamat" class="form-label">Alamat
+                                                </label>
+                                                <input type="text" name="alamat" class="form-control"
+                                                    id="emailInput" placeholder="Enter your Alamat"
+                                                    value="{{ $user->alamat }}">
                                             </div>
-                                        </div>      --}}
-                                        <!--end col-->
+                                        </div>
                                         <div class="col-lg-12">
                                             <div class="hstack gap-2 justify-content-end">
-                                                <button type="submit"
-                                                    class="btn btn-primary">Updates</button>
+                                                <button type="submit" class="btn btn-primary">Updates</button>
 
-                                                    <a href="{{ route('web.mainprofile') }}" class="btn btn-success">
-                                                            Cancel</a>
+                                                <a href="{{ route('web.mainprofile') }}" class="btn btn-success">
+                                                    Cancel</a>
                                                 {{-- <button type="button"
                                                     class="btn btn-soft-success">Cancel</button> --}}
                                             </div>

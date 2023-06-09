@@ -3,6 +3,7 @@
         <!-- Simple card -->
         <div class="card">
             <div class="row g-0">
+                
                 <h3 class="card-title text-center py-2">{{ $sejarah->judul }}</h3>
                 <div class="col-md-3">
                     <img src="{{ asset('images/sejarah/image/' . $sejarah->image) }}" width="100%" height="234"

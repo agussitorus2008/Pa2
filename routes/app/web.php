@@ -10,7 +10,6 @@ use App\Http\Controllers\Web\ProfileController;
 use App\Http\Controllers\Web\SejarahController;
 use App\Http\Controllers\Web\CheckoutController;
 use App\Http\Controllers\Web\RegionalController;
-use App\Http\Controllers\web\DashboardController;
 use App\Http\Controllers\Web\NotificationController;
 
 
@@ -21,11 +20,12 @@ Route::group(['domain' => ''], function () {
     Route::get('registration', [AuthController::class, 'registration'])->name('register-user');
     Route::post('custom-registration', [AuthController::class, 'customRegistration'])->name('register.custom');
     Route::get('signout', [AuthController::class, 'signOut'])->name('signout');
+    Route::get('/dashboard', [SejarahController::class, 'index'])->name('home');
 
 
     Route::name('web.')->group(function () {
-        Route::redirect('/', 'dashboard', 301);
-        Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+        Route::resource('sejarah', SejarahController::class);
+        // Route::redirect('/', 'sejarah', 301);
 
         //Profile
         Route::get('mainprofile', [ProfileController::class, 'index'])->name('mainprofile');
@@ -36,7 +36,7 @@ Route::group(['domain' => ''], function () {
         Route::resource('web/product', ProductController::class);
 
         //sejarah
-        Route::resource('sejarah', SejarahController::class);
+
 
 
 

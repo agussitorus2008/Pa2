@@ -38,7 +38,7 @@
                             </li> <!-- end Dashboard Menu -->
                             <li class="nav-item">
                                 <a class="nav-link menu-link" href="{{ route('web.product.index') }}">
-                                    <i class="ri-apps-2-line"></i> <span data-key="t-apps">Menu Product</span>
+                                    <i class="ri-apps-2-line"></i> <span data-key="t-apps">Product</span>
                                 </a>
                             </li>
                         @endguest
@@ -109,7 +109,7 @@
                                 </li> <!-- end Dashboard Menu -->
                                 <li class="nav-item">
                                     <a class="nav-link menu-link" href="{{ route('web.product.index') }}">
-                                        <i class="ri-apps-2-line"></i> <span data-key="t-apps">Menu Product</span>
+                                        <i class="ri-apps-2-line"></i> <span data-key="t-apps">Product</span>
                                     </a>
                                 </li>
                                 <!-- end Dashboard Menu -->
