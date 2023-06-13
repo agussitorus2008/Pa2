@@ -39,23 +39,34 @@ class AdminSeeder extends Seeder
 
         $user = User::create([
             'nama' => 'Tesya',
-            'username' => 'tesya123',
+            'username' => 'tesya12345',
             'phone' => '082274168229',
             'image' => 'user.JPEG',
             'alamat' => 'janjimaria',
             'email' => 'agussitorus25@gmail.com',
-            'password' => Hash::make('agus12345')
+            'password' => Hash::make('tesya12345')
         ]);
         $user->assignRole('user');
 
         $user = User::create([
             'nama' => 'Cici',
-            'username' => 'cici123',
+            'username' => 'cici12345',
             'phone' => '082274168227',
             'image' => 'user.JPEG',
             'alamat' => 'janjimaria',
             'email' => 'agussitorus26@gmail.com',
-            'password' => Hash::make('agus12345')
+            'password' => Hash::make('cici12345')
+        ]);
+        $user->assignRole('user');
+
+        $user = User::create([
+            'nama' => 'sandro',
+            'username' => 'sandro12345',
+            'phone' => '082274168227',
+            'image' => 'user.JPEG',
+            'alamat' => 'janjimaria',
+            'email' => 'agussitorus27@gmail.com',
+            'password' => Hash::make('sandro12345')
         ]);
         $user->assignRole('user');
     }
