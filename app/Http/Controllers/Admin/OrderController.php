@@ -19,6 +19,7 @@ class OrderController extends Controller
     {
         if ($request->ajax()) {
             $orders = Order::where('total', 'like', '%' . $request->keyword . '%')
+                ->orWhere('user_id', 'like', '%' . $request->keyword . '%')
                 ->orWhere('status', 'like', '%' . $request->keyword . '%')
                 ->orWhere('user_id', 'like', '%' . $request->keyword . '%')
                 ->orWhere('code', 'like', '%' . $request->keyword . '%')
