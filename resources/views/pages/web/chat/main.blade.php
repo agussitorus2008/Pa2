@@ -105,10 +105,10 @@
                                 <div class="col-auto">
                                     <div class="chat-input-links me-2">
                                         <div class="links-list-item">
-                                            <button type="button" class="btn btn-link text-decoration-none emoji-btn"
+                                            {{-- <button type="button" class="btn btn-link text-decoration-none emoji-btn"
                                                 id="emoji-btn">
                                                 <i class="bx bx-smile align-middle"></i>
-                                            </button>
+                                            </button> --}}
                                         </div>
                                     </div>
                                 </div>
