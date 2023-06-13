@@ -45,7 +45,6 @@
                                             <button
                                                 class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted"
                                                 type="button" id="password-addon">
-                                                <i class="ri-eye-fill align-middle"></i>
                                             </button>
                                             @error('password')
                                                 <div class="invalid-feedback">
