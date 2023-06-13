@@ -39,7 +39,7 @@
                 <div class="position-relative" id="users-chat">
                     <div class="chat-conversation p-3 p-lg-4" id="chat-conversation" data-simplebar>
                         <ul class="list-unstyled chat-conversation-list" id="users-conversation">
-                            @if ($chats->count() > 0)
+                            @if ($chats != null)
                                 @if ($chats->sent_by == 1)
                                     <li class="chat-list right">
                                         <div class="conversation-list">
@@ -120,7 +120,15 @@
                                         </li>
                                     @endif
                                 @endforeach
-
+                            @else
+                                <div class="d-flex flex-column-fluid message p-3">
+                                    <div class="message-wrapper">
+                                        <div class="arrow"></div>
+                                        <div class="text-wrapper">
+                                            <div class="text">No chats yet</div>
+                                        </div>
+                                    </div>
+                                </div>
                             @endif
                         </ul>
                         <!-- end chat-conversation-list -->

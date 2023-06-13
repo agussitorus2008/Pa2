@@ -36,32 +36,33 @@
                         <input type="text" name="judul" value="{{ $data->judul }}"
                             class="form-control @error('judul') is-invalid @enderror" id="judul" placeholder="Judul"
                             style="width:30%">
+                        @error('judul')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
-                    @error('judul')
-                        <div class="alert alert-danger">
-                            {{ $message }}
-                        </div>
-                    @enderror
 
-                    <div class="mb-4">
-                        <h5 class="fs-14 mb-3">Image :</h5>
-                        {{-- <p class="text-muted">Add Product main Image.</p> --}}
-                        <input class="form-control" name="image"
-                            class="form-controll @error('image') is invalid @enderror" id="image" type="file"
-                            accept="image/png, image/gif, image/jpeg" style="width:30%" img
-                            src="{{ asset('asset/image/' . $data->gambar) }}">
+
+                    <div class="mb-3">
+                        <h5 class="fs-14 mb-3">Gambar:</h5>
+                        {{-- <p class="text-muted">Tambahkan Gambar Utama Produk.</p> --}}
+                        <input class="form-control @error('image') is-invalid @enderror" name="image" id="image"
+                            type="file" accept="image/png, image/gif, image/jpeg" style="width:30%">
+                        @error('image')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
-                    @error('image')
-                        <div class="alert alert-danger">
-                            {{ $message }}
-                        </div>
-                    @enderror
 
-                    <div>
+
+
+                    <div class="mb-3">
                         <label>Description :</label>
                         <textarea name="deskripsi" id="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror" rows="10">{{ $data->deskripsi }}</textarea>
                         @error('deskripsi')
-                            <div class="alert alert-danger">
+                            <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
                         @enderror

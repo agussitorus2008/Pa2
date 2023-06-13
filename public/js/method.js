@@ -397,3 +397,14 @@ function handle_upload_modal(tombol, form, url, method, modal) {
         return false;
     });
 }
+
+function load_chat(url) {
+    $.get(
+        url,
+        {},
+        function (result) {
+            $("#content_detail").html(result);
+        },
+        "html"
+    );
+}

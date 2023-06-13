@@ -59,7 +59,8 @@
                                     <div class="collapse menu-dropdown" id="sidebarApps">
                                         <ul class="nav nav-sm flex-column">
                                             <li class="nav-item">
-                                                <a href="{{ route('admin.main') }}" class="nav-link" data-key="Menu"> Menu </a>
+                                                <a href="{{ route('admin.main') }}" class="nav-link" data-key="Menu"> Produk
+                                                </a>
                                             </li>
                                         </ul>
                                     </div>

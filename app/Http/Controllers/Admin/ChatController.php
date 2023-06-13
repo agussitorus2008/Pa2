@@ -14,9 +14,8 @@ class ChatController extends Controller
 {
     public function index(Request $request)
     {
-        // dd($request->all());
         if ($request->ajax()) {
-            $users = User::where('nama', 'like', '%' . $request->keyword . '%')->get();
+            $users = User::where('nama', 'like', '%' . $request->keyword . '%')->where('id', '!=', 1)->get();
             return view('pages.admin.chat.list', compact('users'));
         }
 
@@ -83,6 +82,7 @@ class ChatController extends Controller
                 return view('pages.admin.chat.detail', compact('chats', 'user'));
             }
         } else {
+            // dd('true');
             return view('pages.admin.chat.detail', compact('chats', 'user'));
         }
     }

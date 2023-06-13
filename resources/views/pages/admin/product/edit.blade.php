@@ -31,87 +31,98 @@
                 @endif
 
                 <div class="mb-3">
-                    <label for="Nama Product" class="form-label">Nama Product</label>
-                    <input type="text" name="nama" class="form-control" placeholder="Masukkan Nama Product"
-                        value="{{ $product->nama }}">
+                    <label for="Nama Product" class="form-label ">Nama
+                        Product</label>
+                    <input type="text" name="nama" class="form-control @error('nama') is-invalid @enderror"
+                        placeholder="Masukkan Nama Product" value="{{ $product->nama }}">
+                    @error('nama')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
-                @error('nama')
-                    <div class="alert alert-danger">
-                        {{ $message }}
-                    </div>
-                @enderror
+
 
 
                 <div class="mb-3">
-                    <label for="Jensi Product" class="form-label">Jenis Product</label>
-                    <select name="category" class="form-select">
+                    <label for="Jensi Product" class="form-label @error('price') is-invalid @enderror">Jenis
+                        Product</label>
+                    <select name="category" class="form-select @error('category') is-invalid @enderror">
                         <option value="{{ $product->category }}">Stola</option>
                         <option value="{{ $product->category }}">Sortali</option>
                         <option value="{{ $product->category }}">Gantugan Kunci</option>
                     </select>
+                    @error('category')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
-                @error('category')
-                    <div class="alert alert-danger">
-                        {{ $message }}
-                    </div>
-                @enderror
+
 
                 <div class="mb-3">
-                    <label class="form-label" for="product-price-input">Harga</label>
+                    <label class="form-label @error('price') is-invalid @enderror"
+                        for="product-price-input">Harga</label>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="product-price-addon">$</span>
-                        <input type="number" name="price" class="form-control" id="product-price-input"
-                            placeholder="Enter price" aria-label="Price" aria-describedby="product-price-addon"
-                            value="{{ $product->price }}">
+                        <input type="number" name="price" class="form-control @error('price') is-invalid @enderror"
+                            id="product-price-input" placeholder="Enter price" aria-label="Price"
+                            aria-describedby="product-price-addon" value="{{ $product->price }}">
                     </div>
+                    @error('price')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
 
-                @error('price')
-                    <div class="alert alert-danger">
-                        {{ $message }}
-                    </div>
-                @enderror
+
 
                 <div class="mb-3">
-                    <label class="form-label" for="product-discount-input">Stock</label>
+                    <label class="form-label @error('stock') is-invalid @enderror"
+                        for="product-stock-input">Stok</label>
                     <div class="input-group mb-3">
-
                         <div class="input-step">
                             <button type="button" onclick="kurang()" class="minus">–</button>
-                            <input type="number" name="stock" class="stock" value="1" min="0"
-                                max="100">
+                            <input type="number" name="stock"
+                                class="form-control @error('stock') is-invalid @enderror" id="product-stock-input"
+                                value="{{ $product->stock }}" min="0" max="100">
                             <button type="button" onclick="tambah()" class="plus">+</button>
                         </div>
                     </div>
+                    @error('stock')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
-                @error('stock')
-                    <div class="alert alert-danger">
-                        {{ $message }}
-                    </div>
-                @enderror
+
+
 
                 <div class="mb-3">
                     <label for="image" class="form-label">Gambar</label>
-                    <input type="file" name="image" class="form-control" placeholder="Masukkan Gambar"
-                        value="{{ $product->image }}">
+                    <input type="file" name="image" class="form-control @error('image') is-invalid @enderror"
+                        name="image" placeholder="Masukkan Gambar" value="{{ $product->image }}">
+                    @error('image')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
-                @error('image')
-                    <div class="alert alert-danger">
-                        {{ $message }}
-                    </div>
-                @enderror
 
 
                 <div class="mb-3">
                     <label for="Deskripsi" class="form-label">Deskripsi</label>
-                    <textarea name="description" style="height:140px;" class="form-control" placeholder="Masukkan Deskripsi ">{{ $product->description }}</textarea>
+                    <textarea name="description" style="height:140px;" class="form-control @error('description') is-invalid @enderror"
+                        placeholder="Masukkan Deskripsi ">{{ $product->description }}</textarea>
+                    @error('description')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
 
-                @error('description')
-                    <div class="alert alert-danger">
-                        {{ $message }}
-                    </div>
-                @enderror
+
             </div>
             <div class="card-footer">
                 <div class="hstack gap-2 justify-content">

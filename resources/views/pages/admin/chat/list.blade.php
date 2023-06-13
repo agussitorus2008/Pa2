@@ -1,7 +1,7 @@
 @foreach ($users as $user)
     <ul class="list-unstyled chat-list chat-user-list" id="userList">
         <li class="active">
-            <a href="javascript: void(0);" onclick="load_detail('{{ route('admin.chat.show', $user->id) }}')">
+            <a href="javascript: void(0);" onclick="load_chat('{{ route('admin.chat.show', $user->id) }}')">
                 <div class="d-flex align-items-center">
                     <div class="flex-shrink-0 chat-user-img online align-self-center me-2 ms-0">
                         <div class="avatar-xxs">

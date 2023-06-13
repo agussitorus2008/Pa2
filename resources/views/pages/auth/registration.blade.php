@@ -24,44 +24,59 @@
                                             </div>
                                         @endif --}}
 
+                                    {{-- <div class="mb-3">
+                                        <label for="username" class="form-label">Username</label>
+                                        <input type="text" name="username"
+                                            class="form-control @error('username') is-invalid @enderror" id="username"
+                                            placeholder="Masukkan Username Anda" value="{{ old('username') }}">
+                                        @error('username')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div> --}}
+
                                     <div class="mb-3">
                                         <label for="username" class="form-label">Username <span
                                                 class="text-danger">*</span></label>
-                                        <input type="text" name="username" class="form-control" id="username"
+                                        <input type="text" name="username"
+                                            class="form-control @error('username') is-invalid @enderror" id="username"
                                             placeholder="Enter username">
-                                        <div>
-                                            @error('username')
-                                                <div class="alert alert-danger">{{ $message }}</div>
-                                            @enderror
-                                        </div>
+
+                                        @error('username')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
 
                                     </div>
                                     <div class="mb-3">
                                         <label for="nama" class="form-label">Nama <span
                                                 class="text-danger">*</span></label>
-                                        <input type="text" name="nama" class="form-control" id="nama"
+                                        <input type="text" name="nama"
+                                            class="form-control @error('nama') is-invalid @enderror" id="nama"
                                             placeholder="Enter nama">
                                         @error('nama')
-                                            <div class="alert alert-danger">{{ $message }}</div>
+                                            <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>
 
                                     <div class="mb-3">
                                         <label for="useremail" class="form-label">Email <span
                                                 class="text-danger">*</span></label>
-                                        <input type="email" name="email" class="form-control" id="useremail"
+                                        <input type="email" name="email"
+                                            class="form-control @error('nama') is-invalid @enderror" id="useremail"
                                             placeholder="Enter email address">
                                         @error('email')
-                                            <div class="alert alert-danger">{{ $message }}</div>
+                                            <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="mb-2">
                                         <label for="userpassword" class="form-label">Password <span
                                                 class="text-danger">*</span></label>
-                                        <input type="password" name="password" class="form-control" id="userpassword"
-                                            placeholder="Enter password">
+                                        <input type="password" name="password"
+                                            class="form-control @error('password') is-invalid @enderror"
+                                            id="userpassword" placeholder="Enter password">
                                         @error('password')
-                                            <div class="alert alert-danger">{{ $message }}</div>
+                                            <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>
 
