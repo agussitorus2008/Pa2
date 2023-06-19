@@ -7,7 +7,7 @@ use App\Models\Order;
 use App\Models\OrderDetail;
 use App\Models\Notification;
 use App\Http\Controllers\Controller;
-use PDF;
+
 
 use App\Exports\OrdersExport;
 use Illuminate\Http\Request;
@@ -35,7 +35,7 @@ class OrderController extends Controller
     {
         return view('pages.admin.orders.show', compact('order'));
     }
-    
+
     public function accept(Order $order)
     {
         $notification = new Notification;
@@ -75,22 +75,4 @@ class OrderController extends Controller
             'message' => 'Pesanan berhasil ditolak',
         ]);
     }
-    public function pdf()
-    {
-        $orders = Order::orderBy('created_at', 'DESC')->get();
-        $pdf = PDF::loadView('pages.admin.orders.pdf', ['orders' => $orders]);
-        return $pdf->download($orders->first()->code . '-' . $orders->first()->created_at->format('d-m-Y') . '.pdf');
-    }
-
-
-    // public function excel(Order $order)
-    // {
-    //     return view('pages.admin.orders.excel', compact('orders'));
-    // }
-    // public function downloadexcel()
-    // {
-    //     $orders = Order::orderBy('created_at', 'DESC')->get();
-    //     $fileName = $orders->first()->code . '-' . $orders->first()->created_at->format('d-m-Y') . '.xlsx';
-    //     return Excel::download(new OrdersExport($orders), $fileName);
-    // }
 }

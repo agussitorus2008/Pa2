@@ -82,16 +82,16 @@
                     <label class="form-label @error('stock') is-invalid @enderror"
                         for="product-stock-input">Stok</label>
                     <div class="input-group mb-3">
+
                         <div class="input-step">
                             <button type="button" onclick="kurang()" class="minus">–</button>
-                            <input type="number" name="stock"
-                                class="form-control @error('stock') is-invalid @enderror" id="product-stock-input"
-                                value="{{ $product->stock }}" min="0" max="100">
+                            <input type="number" name="stock" class="stock" value="1" min="0"
+                                max="100">
                             <button type="button" onclick="tambah()" class="plus">+</button>
                         </div>
                     </div>
                     @error('stock')
-                        <div class="invalid-feedback">
+                        <div class="alert alert-danger">
                             {{ $message }}
                         </div>
                     @enderror

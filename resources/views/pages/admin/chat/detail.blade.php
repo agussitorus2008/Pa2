@@ -43,9 +43,9 @@
                                 @if ($chats->sent_by == 1)
                                     <li class="chat-list right">
                                         <div class="conversation-list">
-                                            <div class="chat-avatar">
+                                            {{-- <div class="chat-avatar">
                                                 <img src="assets/images/users/avatar-2.jpg" alt="" />
-                                            </div>
+                                            </div> --}}
                                             <div class="user-chat-content">
                                                 <div class="ctext-wrap">
                                                     <div class="ctext-wrap-content">

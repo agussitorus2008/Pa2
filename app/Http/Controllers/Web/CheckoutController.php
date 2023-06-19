@@ -11,7 +11,6 @@ use App\Models\Order;
 use App\Helpers\Helper;
 use App\Models\Province;
 use App\Models\OrderDetail;
-use App\Models\Subdistrict;
 use App\Models\Notification;
 use Illuminate\Http\Request;
 use Illuminate\Support\FacaSdes\DB;
@@ -45,72 +44,10 @@ class CheckoutController extends Controller
         ]);
         if ($validators->fails()) {
             $errors = $validators->errors();
-            if ($errors->has('fullname')) {
-                return response()->json([
-                    'alert' => 'error',
-                    'message' => $errors->first('fullname'),
-                ]);
-            }
-            if ($errors->has('phone')) {
-                return response()->json([
-                    'alert' => 'error',
-                    'message' => $errors->first('phone'),
-                ]);
-            }
-            if ($errors->has('address')) {
-                return response()->json([
-                    'alert' => 'error',
-                    'message' => $errors->first('address'),
-                ]);
-            }
-            if ($errors->has('province')) {
-                return response()->json([
-                    'alert' => 'error',
-                    'message' => $errors->first('province'),
-                ]);
-            }
-            if ($errors->has('card_id')) {
-                return response()->json([
-                    'alert' => 'error',
-                    'message' => $errors->first('card_id'),
-                ]);
-            }
-            if ($errors->has('card_name')) {
-                return response()->json([
-                    'alert' => 'error',
-                    'message' => $errors->first('card_name'),
-                ]);
-            }
-            if ($errors->has('city')) {
-                return response()->json([
-                    'alert' => 'error',
-                    'message' => $errors->first('city'),
-                ]);
-            }
-            if ($errors->has('subdistrict')) {
-                return response()->json([
-                    'alert' => 'error',
-                    'message' => $errors->first('subdistrict'),
-                ]);
-            }
-            if ($errors->has('postal_code')) {
-                return response()->json([
-                    'alert' => 'error',
-                    'message' => $errors->first('postal_code'),
-                ]);
-            }
-            if ($errors->has('payment')) {
-                return response()->json([
-                    'alert' => 'error',
-                    'message' => 'Silahkan pilih cara pembayaran',
-                ]);
-            }
-            if ($errors->has('image')) {
-                return response()->json([
-                    'alert' => 'error',
-                    'message' => 'Silahkan upload bukti pembayaran',
-                ]);
-            }
+            return response()->json([
+                'alert' => 'error',
+                'message' => $errors->first(),
+            ]);
         }
 
         return response()->json([
@@ -166,5 +103,9 @@ class CheckoutController extends Controller
         $carts->each->delete();
 
         return view('pages.web.checkout.detail', ['order' => $order]);
+    }
+
+    public function preOrder(Request $request)
+    {
     }
 }

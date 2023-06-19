@@ -70,13 +70,29 @@
                                         </div>
                                         <div class="pt-5 col-lg-4 col-sm-4">
                                         </div>
-                                        <div class="col-lg-4 col-sm-4 mt-5 d-md-flex justify-content-end"
+                                        @if ($product->stock == 0)
+                                            <div class="col-lg-4 col-sm-4 mt-5 d-md-flex justify-content-end"
+                                                style="height: 20%">
+                                                <button id="tombol_cart"
+                                                    onclick="add_cartpreorder('#tombol_cart', '#form_cart', '{{ route('web.preorders.store') }}', 'POST')"
+                                                    class="btn btn-success waves-effect waves-light">Pre order</button>
+                                            </div>
+                                        @else
+                                            <div class="col-lg-4 col-sm-4 mt-5 d-md-flex justify-content-end"
+                                                style="height: 20%">
+                                                <button id="tombol_cart"
+                                                    onclick="add_cart('#tombol_cart', '#form_cart', '{{ route('web.cart.add') }}', 'POST')"
+                                                    class="btn btn-success waves-effect waves-light">Tambah Ke
+                                                    Keranjang</button>
+                                            </div>
+                                        @endif
+                                        {{-- <div class="col-lg-4 col-sm-4 mt-5 d-md-flex justify-content-end"
                                             style="height: 20%">
                                             <button id="tombol_cart"
                                                 onclick="add_cart('#tombol_cart', '#form_cart', '{{ route('web.cart.add') }}', 'POST')"
                                                 class="btn btn-success waves-effect waves-light">Tambah Ke
                                                 Keranjang</button>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 </form>
                             @endauth

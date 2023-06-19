@@ -16,7 +16,7 @@
                                 <div class="search-box ms-2">
                                     <form id="content_filter">
                                         <input type="text" name="keyword" onkeyup="load_list(1);"
-                                            class="form-control" placeholder="Cari Data Pesanan...">
+                                            class="form-control" placeholder="Cari order ...">
                                         <i class="ri-search-line search-icon"></i>
                                     </form>
                                 </div>
@@ -30,8 +30,8 @@
     </div>
     <div id="content_detail"></div>
     @section('custom_js')
-    <script>
-        load_list(1);
-    </script>
+        <script>
+            load_list(1);
+        </script>
     @endsection
 </x-app-layout>

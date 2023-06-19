@@ -42,6 +42,9 @@ Route::group(['domain' => ''], function () {
         Route::patch('order/accept/{order}', [OrderController::class, 'accept'])->name('order.accept');
         Route::patch('order/reject/{order}', [OrderController::class, 'reject'])->name('order.reject');
 
+        //preorder
+        Route::get('preorder', [PreOrderController::class, 'index'])->name('preorder.index');
+
         // CHAT
         Route::get('chat', [ChatController::class, 'index'])->name('chat.index');
         Route::get('chat/{id}', [ChatController::class, 'show'])->name('chat.show');

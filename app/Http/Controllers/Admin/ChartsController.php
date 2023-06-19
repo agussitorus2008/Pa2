@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Carbon\Carbon;
 use App\Models\Order;
+use App\Models\OrderDetail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
@@ -20,12 +21,12 @@ class ChartsController extends Controller
 
         $orders = DB::table('orders')
             ->selectRaw("
-        COUNT(*) as total,
-        DAYNAME(created_at) as day_name,
-        SUM(CASE WHEN status = 'accepted' THEN 1 ELSE 0 END) as accepted,
-        SUM(CASE WHEN status = 'rejected' THEN 1 ELSE 0 END) as rejected,
-        SUM(CASE WHEN status = 'pending' THEN 1 ELSE 0 END) as pending
-    ")
+            COUNT(*) as total,
+            DAYNAME(created_at) as day_name,
+            SUM(CASE WHEN status = 'accepted' THEN 1 ELSE 0 END) as accepted,
+            SUM(CASE WHEN status = 'rejected' THEN 1 ELSE 0 END) as rejected,
+            SUM(CASE WHEN status = 'pending' THEN 1 ELSE 0 END) as pending
+        ")
             ->whereBetween('created_at', [$startDate, $endDate])
             ->groupBy(DB::raw('DAYNAME(created_at)'))
             ->get();
@@ -46,7 +47,20 @@ class ChartsController extends Controller
             $data['pending'][] = (int) $row->pending;
         }
 
-        return view('pages.admin.charts.main', compact('data'));
+        $orderDetail = OrderDetail::with('product')
+            ->join('orders', 'order_details.order_id', '=', 'orders.id')
+            ->select('order_details.product_id', DB::raw('count(*) as total'))
+            ->where('orders.status', 'accepted')
+            ->groupBy('order_details.product_id')
+            ->orderByDesc('total')
+            ->first();
+        if ($orderDetail) {
+            $product = $orderDetail->product;
+            return view('pages.admin.charts.main', compact('data', 'product'));
+        } else {
+            return view('pages.admin.charts.main', compact('data'));
+        }
+        $product = $orderDetail->product;
     }
 
     /**

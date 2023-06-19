@@ -42,6 +42,32 @@ function add_cart(tombol, form, url, method) {
         },
     });
 }
+
+function add_cartpreorder(tombol, form, url, method) {
+    $(tombol).submit(function () {
+        return false;
+    });
+    let data = $(form).serialize();
+    $(tombol).prop("disabled", true);
+    $.ajax({
+        type: method,
+        url: url,
+        data: data,
+        dataType: "json",
+        beforeSend: function () {},
+        success: function (response) {
+            if (response.alert == "success") {
+                success_toastr(response.message).then(
+                    (value) => (location.href = response.redirect)
+                );
+            } else {
+                error_toastr(response.message);
+            }
+            $(tombol).prop("disabled", false);
+        },
+    });
+}
+
 function remove_cart(title, confirm_title, deny_title, method, route) {
     Swal.fire({
         title: title,

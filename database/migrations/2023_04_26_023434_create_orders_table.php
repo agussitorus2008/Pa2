@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('total');
             $table->string('payment')->nullable();
             $table->string('image')->nullable();
-            $table->enum('status', ['pending', 'accepted', 'rejected'])->default('pending');
+            $table->enum('status', ['pending', 'accepted', 'preorder', 'rejected', 'preorder']);
             $table->timestamps();
             $table->softDeletes();
             $table->foreign('user_id')->references('id')->on('users');

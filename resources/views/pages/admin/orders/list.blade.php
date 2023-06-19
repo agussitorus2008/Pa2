@@ -36,6 +36,8 @@
                                     <span class="badge badge-soft-success text-uppercase">Diterima</span>
                                 @elseif($item->status == 'rejected')
                                     <span class="badge badge-soft-danger text-uppercase">Ditolak</span>
+                                @elseif($item->status == 'preorder')
+                                    <span class="badge badge-soft-warning text-uppercase">Pre-Order</span>
                                 @endif
                             </td>
                             <td>

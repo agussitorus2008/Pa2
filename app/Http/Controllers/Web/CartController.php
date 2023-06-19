@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web;;
 
 use App\Models\Cart;
+use App\Models\Order;
 use App\Models\product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -102,6 +103,12 @@ class CartController extends Controller
             'alert' => 'success',
             'message' => 'Berhasil menambahkan ke keranjang',
         ]);
+    }
+
+    public function preorder(Request $request)
+    {
+        $order = new Order();
+        $order->product_id = $request->product_id;
     }
 
     public function update(Request $request, Cart $cart)

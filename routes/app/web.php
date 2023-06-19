@@ -9,6 +9,7 @@ use App\Http\Controllers\Web\ProductController;
 use App\Http\Controllers\Web\ProfileController;
 use App\Http\Controllers\Web\SejarahController;
 use App\Http\Controllers\Web\CheckoutController;
+use App\Http\Controllers\Web\PreOrderController;
 use App\Http\Controllers\Web\RegionalController;
 use App\Http\Controllers\Web\NotificationController;
 
@@ -71,5 +72,9 @@ Route::group(['domain' => ''], function () {
         Route::post('regional/province', [RegionalController::class, 'province'])->name('regional.province');
         Route::post('regional/city', [RegionalController::class, 'city'])->name('regional.city');
         Route::post('regional/subdistrict', [RegionalController::class, 'subdistrict'])->name('regional.subdistrict');
+
+        //Pre Order
+        Route::post('/preorders', [PreOrderController::class, 'store'])->name('preorders.store');
+        Route::get('/preorders/{preOrder}', [PreOrderController::class, 'show'])->name('preorders.show');
     });
 });
