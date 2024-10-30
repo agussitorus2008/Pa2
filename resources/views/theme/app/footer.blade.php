@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="text-center">
-                    © PA2-12
+                    © Souvneri Sales Batak
                     <script>
                         document.write(new Date().getFullYear())
                     </script>
